@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DryOut.mp3-4ec58cc45e9135be3a7c960594dedf5a.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/DryOut.mp3"
+dest_files=[ "res://.import/DryOut.mp3-4ec58cc45e9135be3a7c960594dedf5a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

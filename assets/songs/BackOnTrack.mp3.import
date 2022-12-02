@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BackOnTrack.mp3-21346adb6bbe702d835e68ab1a392a4c.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/BackOnTrack.mp3"
+dest_files=[ "res://.import/BackOnTrack.mp3-21346adb6bbe702d835e68ab1a392a4c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

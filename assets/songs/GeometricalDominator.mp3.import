@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GeometricalDominator.mp3-73405487a499d2d343730b7df65e95a8.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/GeometricalDominator.mp3"
+dest_files=[ "res://.import/GeometricalDominator.mp3-73405487a499d2d343730b7df65e95a8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Clubstep.mp3-d221596d6578f9dc7468ce250e61dfc8.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Clubstep.mp3"
+dest_files=[ "res://.import/Clubstep.mp3-d221596d6578f9dc7468ce250e61dfc8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

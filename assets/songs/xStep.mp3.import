@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/xStep.mp3-776f771d5397945ff07d2ca8fea40f36.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/xStep.mp3"
+dest_files=[ "res://.import/xStep.mp3-776f771d5397945ff07d2ca8fea40f36.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

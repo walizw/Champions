@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HexagonForce.mp3-3bc6b75d0d1efa3c4f69e0fffe210159.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/HexagonForce.mp3"
+dest_files=[ "res://.import/HexagonForce.mp3-3bc6b75d0d1efa3c4f69e0fffe210159.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

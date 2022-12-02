@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Electrodynamix.mp3-6c0102304e6ef65b45d24a74bb94dd15.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Electrodynamix.mp3"
+dest_files=[ "res://.import/Electrodynamix.mp3-6c0102304e6ef65b45d24a74bb94dd15.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fingerdash.mp3-ad9fc4d7d2a7fc5abaf7fe532368d76f.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Fingerdash.mp3"
+dest_files=[ "res://.import/Fingerdash.mp3-ad9fc4d7d2a7fc5abaf7fe532368d76f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

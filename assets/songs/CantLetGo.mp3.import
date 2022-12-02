@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CantLetGo.mp3-8b56ee866ae1a1ff695591658fe72b3c.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/CantLetGo.mp3"
+dest_files=[ "res://.import/CantLetGo.mp3-8b56ee866ae1a1ff695591658fe72b3c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

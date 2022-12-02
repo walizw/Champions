@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TheoryOfEverything.mp3-c6b26a8c8ea9674c664f96abcad24f1c.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/TheoryOfEverything.mp3"
+dest_files=[ "res://.import/TheoryOfEverything.mp3-c6b26a8c8ea9674c664f96abcad24f1c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

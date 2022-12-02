@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Cycles.mp3-2408b495eb4cf1752fa4bfe7b74b944e.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Cycles.mp3"
+dest_files=[ "res://.import/Cycles.mp3-2408b495eb4cf1752fa4bfe7b74b944e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

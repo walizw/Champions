@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Deadlocked.mp3-bc92f45d5e2ebe52f41ffb2a4db0d161.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Deadlocked.mp3"
+dest_files=[ "res://.import/Deadlocked.mp3-bc92f45d5e2ebe52f41ffb2a4db0d161.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

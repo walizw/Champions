@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Electroman.mp3-28c30989d1aee23ae8e222bc9e92c7e9.mp3str"
+
+[deps]
+
+source_file="res://assets/songs/Electroman.mp3"
+dest_files=[ "res://.import/Electroman.mp3-28c30989d1aee23ae8e222bc9e92c7e9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
