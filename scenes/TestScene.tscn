@@ -56,4 +56,4 @@ tile_data = PoolIntArray( 327946, 14, 0 )
 script = ExtResource( 4 )
 
 [node name="Cube" parent="." instance=ExtResource( 2 )]
-position = Vector2( 14219, 309 )
+position = Vector2( -64, 568 )

@@ -22,14 +22,14 @@ func _physics_process (delta: float) -> void:
 	if is_on_wall ():# or is_on_ceiling():
 		die ()
 	
+	move_vehicle (delta)
+	
 	# TODO: This might give errors in the ship
 	if Input.is_action_just_pressed ("jump") and not is_on_floor ():
 		PlayerData.canring = true
 	
 	if PlayerData.canring and is_on_floor ():
 		PlayerData.canring = false
-	
-	move_vehicle (delta)
 
 func move_vehicle (delta: float) -> void:
 	velocity.x = PlayerData.speed.x * PlayerData.speed_boost
@@ -81,8 +81,8 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		velocity.y = -(PlayerData.speed.y + (PlayerData.speed.y * 0.8)) * PlayerData.gravdir
 	
 	# TODO: Portals
-	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE:
+	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE and name != "Cube":
 		pass
-	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP:
-		PlayerData.vehicle_transform (self, "res://prefabs/Ship.tscn")
+	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP and name != "Ship":
+		PlayerData.vehicle_transform (self, "SHIP")
 		PlayerData.calc_ground_y (pos, 10)

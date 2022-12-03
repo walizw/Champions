@@ -21,6 +21,10 @@ var bgcolor: = Color.blue
 var g1y: = 728
 var g2y: = -100000 # top ground y
 
+# some preloads
+var cube_vehicle: = preload ("res://prefabs/Cube.tscn")
+var ship_vehicle: = preload ("res://prefabs/Ship.tscn")
+
 func reset_vars ():
 	# Useful when changing levels
 	speed_boost = 1
@@ -47,8 +51,11 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 
 # TODO: Should all the vehicles be instantiated at _ready?
 func vehicle_transform (from: Vehicle, to: String) -> void:
-	var to_scene = ResourceLoader.load (to)
-	var ins: Vehicle = to_scene.instance ()
+	var ins: Vehicle
+	if to == "CUBE":
+		ins = cube_vehicle.instance ()
+	elif to == "SHIP":
+		ins = ship_vehicle.instance ()
 	ins.global_position = from.global_position
 	get_tree ().get_root ().add_child (ins)
 	from.queue_free ()
