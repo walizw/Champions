@@ -9,6 +9,3 @@ func update_camera ():
 	var view_size = get_viewport ().size
 	
 	global_position.x = player_pos.x + (view_size.x / 3)
-	
-	if PlayerData.yscroll:
-		drag_margin_v_enabled = true

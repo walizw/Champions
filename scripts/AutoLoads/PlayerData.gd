@@ -1,6 +1,5 @@
 extends Node
 
-# 490
 var speed: = Vector2 (615, 1200)
 
 var cube: = 1 # the frame of the cube
@@ -14,7 +13,6 @@ var speed_boost: = 1 # this is used for speeds, as it multiplies the base speed
 var grav: = 5600 # gravity
 var gravdir: = 1 # if -1, the player will be upside down
 
-var yscroll: = true # determines whether the camera can go up and down, i.e. false on ship
 var canring: = false # if true, and collided with a ring, do its thing?
 
 var gcolor: = Color.blue
@@ -27,7 +25,6 @@ func reset_vars ():
 	# Useful when changing levels
 	speed_boost = 1
 	gravdir = 1
-	yscroll = true
 	canring = false
 	
 	g1y = -100000

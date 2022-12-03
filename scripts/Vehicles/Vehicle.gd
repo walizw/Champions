@@ -10,6 +10,8 @@ onready var camera: = $Camera2D
 
 var angle: = 0.0
 
+var maxvsp: = 5000
+
 func _ready () -> void:
 	camera.current = true
 	
@@ -17,7 +19,7 @@ func _ready () -> void:
 	spr_b.modulate = PlayerData.color_b
 
 func _physics_process (delta: float) -> void:
-	if is_on_wall () or is_on_ceiling():
+	if is_on_wall ():# or is_on_ceiling():
 		die ()
 	
 	# TODO: This might give errors in the ship
@@ -31,7 +33,7 @@ func _physics_process (delta: float) -> void:
 
 func move_vehicle (delta: float) -> void:
 	velocity.x = PlayerData.speed.x * PlayerData.speed_boost
-	velocity.y += (PlayerData.grav * delta) * PlayerData.gravdir
+	velocity.y = clamp (velocity.y + ((PlayerData.grav * delta) * PlayerData.gravdir), -maxvsp, maxvsp)
 
 func die () -> void:
 	# TODO: Die
