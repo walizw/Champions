@@ -39,13 +39,13 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 	var ty: = pos.y
 	
 	for i in floor (sep / 2):
-		if ty < 11:
+		if ty < 12:
 			ty += 1
 	var ty2: = ty
 	for i in sep:
 		ty2 -= 1
-	g1y = ty * 60
-	g2y = ty2 * 60
+	g1y = (ty * 60) + 128
+	g2y = (ty2 * 60) - 128
 	print (ty, ty2)
 
 # TODO: Should all the vehicles be instantiated at _ready?
