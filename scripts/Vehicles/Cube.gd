@@ -68,6 +68,5 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		var tmap: TileMap = body
 		var world_pos: = tmap.world_to_map (tmap.to_local (global_position))
 		var tile: = tmap.get_cellv (world_pos)
-		print (world_pos)
 		
 		handle_special (tile, world_pos)

@@ -43,3 +43,15 @@ func rotate_ship () -> void:
 func jump () -> void:
 	var fspd: = 150
 	velocity.y = clamp (velocity.y - fspd, -800, 0)
+
+
+func _on_Hitbox_body_entered(body: Node) -> void:
+	if body is TileMap and body.collision_layer == 4:
+		# this is a trap
+		die ()
+	elif body is TileMap and body.collision_layer == 16:
+		var tmap: TileMap = body
+		var world_pos: = tmap.world_to_map (tmap.to_local (global_position))
+		var tile: = tmap.get_cellv (world_pos)
+		
+		handle_special (tile, world_pos)

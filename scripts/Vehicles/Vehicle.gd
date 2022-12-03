@@ -85,4 +85,4 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		pass
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP:
 		PlayerData.vehicle_transform (self, "res://prefabs/Ship.tscn")
-		PlayerData.calc_ground_y (pos, 11)
+		PlayerData.calc_ground_y (pos, 10)
