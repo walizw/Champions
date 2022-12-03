@@ -15,7 +15,7 @@ func _process (delta: float) -> void:
 		color_dir *= -1
 		randomize ()
 		other_color = Color (randf (), randf (), randf ())
-	color_mix += 0.00025 * color_dir
+	color_mix += 0.0025 * color_dir
 	
 	background.modulate = current_color
 	ground.modulate = current_color

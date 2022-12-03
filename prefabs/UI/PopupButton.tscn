@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sheets/ui/ui_sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/UI/PopupButton.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 1229.84, 847.48, 188.112, 166.815 )
+
+[node name="PopupButton" type="TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1732.0
+margin_bottom = -914.0
+texture_normal = SubResource( 1 )
+script = ExtResource( 2 )
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
