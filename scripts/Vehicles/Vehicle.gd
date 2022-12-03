@@ -8,6 +8,8 @@ onready var spr_b: = $SprB
 
 onready var camera: = $Camera2D
 
+var angle: = 0.0
+
 func _ready () -> void:
 	camera.current = true
 	
@@ -36,7 +38,7 @@ func die () -> void:
 	# queue_free ()
 	get_tree ().paused = true
 
-func handle_special (tile_id: int) -> void:
+func handle_special (tile_id: int, pos: Vector2) -> void:
 	if tile_id == -1:
 		print ("handle_special: Received a -1, should we fix this? how tho?")
 		return
@@ -81,3 +83,4 @@ func handle_special (tile_id: int) -> void:
 		pass
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP:
 		PlayerData.vehicle_transform (self, "res://prefabs/Ship.tscn")
+		PlayerData.calc_ground_y (pos, 13)

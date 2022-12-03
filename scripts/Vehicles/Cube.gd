@@ -1,7 +1,5 @@
 extends Vehicle
 
-export var angle: = 0.0
-
 func _ready () -> void:
 	spr_a.frame = PlayerData.cube
 	spr_b.frame = PlayerData.cube
@@ -72,4 +70,4 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		var tile: = tmap.get_cellv (world_pos)
 		print (world_pos)
 		
-		handle_special (tile)
+		handle_special (tile, world_pos)

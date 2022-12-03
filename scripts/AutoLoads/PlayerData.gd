@@ -20,8 +20,8 @@ var canring: = false # if true, and collided with a ring, do its thing?
 var gcolor: = Color.blue
 var bgcolor: = Color.blue
 
-var g1y: = -100000 # top ground y
-var g2y: = 728
+var g1y: = 728
+var g2y: = -100000 # top ground y
 
 func reset_vars ():
 	# Useful when changing levels
@@ -33,15 +33,25 @@ func reset_vars ():
 	g1y = -100000
 	g2y = 728
 
-# Calculates g1y and g2y with `blocks_apart' in between them
-func calc_ground_y (blocks_apart: int) -> void:
+# Calculates g1y and g2y
+func calc_ground_y (pos: Vector2, sep: int) -> void:
 	# TODO: This
-	pass
+	var ty: = pos.y
+	
+	for i in floor (sep / 2):
+		if ty < 11:
+			ty += 1
+	var ty2: = ty
+	for i in sep:
+		ty2 -= 1
+	g1y = ty * 60
+	g2y = ty2 * 60
+	print (ty, ty2)
 
 # TODO: Should all the vehicles be instantiated at _ready?
 func vehicle_transform (from: Vehicle, to: String) -> void:
 	var to_scene = ResourceLoader.load (to)
 	var ins: Vehicle = to_scene.instance ()
-	from.queue_free ()
 	ins.global_position = from.global_position
 	get_tree ().get_root ().add_child (ins)
+	from.queue_free ()
