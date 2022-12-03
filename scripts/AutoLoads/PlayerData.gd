@@ -22,8 +22,8 @@ var g1y: = 728
 var g2y: = -100000 # top ground y
 
 # some preloads
-var cube_vehicle: = preload ("res://prefabs/Cube.tscn")
-var ship_vehicle: = preload ("res://prefabs/Ship.tscn")
+var cube_vehicle: = preload ("res://prefabs/Vehicles/Cube.tscn")
+var ship_vehicle: = preload ("res://prefabs/Vehicles/Ship.tscn")
 
 func reset_vars ():
 	# Useful when changing levels
@@ -33,6 +33,10 @@ func reset_vars ():
 	
 	g1y = -100000
 	g2y = 728
+
+func reset_g2y () -> void:
+	g1y = 728
+	g2y = -100000
 
 # Calculates g1y and g2y
 func calc_ground_y (pos: Vector2, sep: int) -> void:

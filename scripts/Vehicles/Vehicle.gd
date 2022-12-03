@@ -82,7 +82,8 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 	
 	# TODO: Portals
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE and name != "Cube":
-		pass
+		PlayerData.vehicle_transform (self, "CUBE")
+		PlayerData.reset_g2y ()
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP and name != "Ship":
 		PlayerData.vehicle_transform (self, "SHIP")
 		PlayerData.calc_ground_y (pos, 10)
