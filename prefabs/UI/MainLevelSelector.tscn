@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://prefabs/UI/menus/MainLevelTile.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/UI/LevelSelector.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+name = "Stereo Madness"
+stars = 1
+difficulty = 0
+
+[node name="MainLevelSelector" type="Control"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -288.0
+margin_bottom = 252.0
+script = ExtResource( 2 )
+levels = [ SubResource( 3 ) ]
+main_level_tile = ExtResource( 1 )

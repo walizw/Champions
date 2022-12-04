@@ -14,6 +14,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/UI/GDButton.gd"
 }, {
+"base": "Resource",
+"class": "LevelData",
+"language": "GDScript",
+"path": "res://scripts/Resources/LevelData.gd"
+}, {
+"base": "Control",
+"class": "MainLevelTile",
+"language": "GDScript",
+"path": "res://scripts/UI/menus/MainLevelTile.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Vehicle",
 "language": "GDScript",
@@ -21,6 +31,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "GDButton": "",
+"LevelData": "",
+"MainLevelTile": "",
 "Vehicle": ""
 }
 
