@@ -39,8 +39,9 @@ TileData="*res://scripts/AutoLoads/TileData.gd"
 
 window/size/width=1920
 window/size/height=1080
-window/size/test_width=1280
-window/size/test_height=720
+window/size/resizable=false
+window/size/test_width=854
+window/size/test_height=480
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
