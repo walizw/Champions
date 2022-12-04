@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GeometryDash"
-run/main_scene="res://scenes/Loading.tscn"
+run/main_scene="res://scenes/UI/Loading.tscn"
 config/icon="res://icon.png"
 
 [autoload]
