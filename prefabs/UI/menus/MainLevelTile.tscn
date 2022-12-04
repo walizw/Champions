@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/sprites/ui/square02_001-uhd.png" type="Texture" id=1]
 [ext_resource path="res://scripts/UI/menus/MainLevelTile.gd" type="Script" id=2]
 [ext_resource path="res://sheets/ui/ui_diff_icons.png" type="Texture" id=3]
-[ext_resource path="res://assets/fonts/PUSAB.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/Pusab.tres" type="DynamicFont" id=4]
+[ext_resource path="res://sheets/ui/ui_sheet.png" type="Texture" id=5]
 
 [sub_resource type="AtlasTexture" id=2]
 flags = 4
@@ -48,12 +49,10 @@ animations = [ {
 "speed": 0.0
 } ]
 
-[sub_resource type="DynamicFont" id=9]
-size = 72
-outline_size = 4
-outline_color = Color( 0, 0, 0, 1 )
-extra_spacing_top = 10
-font_data = ExtResource( 4 )
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 3599.61, 3279.8, 93.1172, 89.0657 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -88,9 +87,34 @@ margin_left = -213.0
 margin_top = -261.0
 margin_right = 500.0
 margin_bottom = -58.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = ExtResource( 4 )
 text = "Back on Track"
 align = 1
 valign = 1
 autowrap = true
 clip_text = true
+
+[node name="StarsIcon" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 441.5
+margin_top = -300.5
+margin_right = 534.5
+margin_bottom = -211.5
+rect_scale = Vector2( 0.5, 0.5 )
+texture = SubResource( 10 )
+
+[node name="Stars" type="Label" parent="StarsIcon"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.5
+margin_top = -17.5
+margin_right = -60.5
+margin_bottom = 37.5
+grow_horizontal = 0
+custom_fonts/font = ExtResource( 4 )
+text = "1"

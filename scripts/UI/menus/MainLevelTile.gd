@@ -8,3 +8,4 @@ func set_level_data (val: LevelData) -> void:
 	
 	$MainLevelTile/DifficultyFace.frame = level_data.difficulty
 	$Name.text = level_data.name
+	$StarsIcon/Stars.text = str (level_data.stars)
