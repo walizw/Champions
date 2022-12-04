@@ -12,7 +12,7 @@
 [node name="StereoMadness" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 600.0, 0.0 ],
+"_edit_horizontal_guides_": [ 600.0, 2.0 ],
 "_edit_vertical_guides_": [ 0.0 ]
 }
 
@@ -57,4 +57,4 @@ tile_data = PoolIntArray( 327946, 14, 0, 393634, 13, 0 )
 script = ExtResource( 5 )
 
 [node name="Cube" parent="." instance=ExtResource( 2 )]
-position = Vector2( -64, 568 )
+position = Vector2( 14733, 306 )

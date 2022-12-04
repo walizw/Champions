@@ -89,14 +89,18 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Cube" type="Node2D" parent="."]
-position = Vector2( 0, -21 )
+scale = Vector2( 0.559, 0.559 )
 
 [node name="CubeB" type="AnimatedSprite" parent="Cube"]
 frames = SubResource( 12 )
+centered = false
+offset = Vector2( -30, -64 )
 
 [node name="CubeA" type="AnimatedSprite" parent="Cube"]
 frames = SubResource( 14 )
 animation = "layer_a"
+centered = false
+offset = Vector2( -30, -64 )
 
 [node name="SprB" type="AnimatedSprite" parent="."]
 position = Vector2( 1, -13 )
@@ -110,7 +114,6 @@ shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1.1, 1.1 )
 limit_left = 0
 limit_bottom = 660
 limit_smoothed = true
@@ -119,6 +122,7 @@ smoothing_enabled = true
 smoothing_speed = 10.0
 drag_margin_top = 1.0
 script = ExtResource( 4 )
+yscroll = false
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_mask = 28

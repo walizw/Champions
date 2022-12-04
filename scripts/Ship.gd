@@ -1,5 +1,6 @@
 extends Vehicle
 
+onready var cube:   = $Cube
 onready var cube_a: = $Cube/CubeA
 onready var cube_b: = $Cube/CubeB
 
@@ -32,13 +33,9 @@ func rotate_ship () -> void:
 	angle += (toangle - angle) * 0.3
 	
 	scale.y = 0.8 * PlayerData.gravdir
-	cube_a.scale = Vector2 (scale.x * 0.7, scale.y * 0.7)
-	cube_b.scale = Vector2 (scale.x * 0.7, scale.y * 0.7)
+	cube.scale = Vector2 (scale.x * 0.7, scale.y * 0.7)
 	
-	spr_a.rotation_degrees = angle
-	spr_b.rotation_degrees = angle
-	cube_a.rotation_degrees = angle
-	cube_b.rotation_degrees = angle
+	rotation_degrees = angle
 
 func jump () -> void:
 	var fspd: = 150

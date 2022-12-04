@@ -57,6 +57,7 @@ extents = Vector2( 26, 26 )
 extents = Vector2( 15, 15 )
 
 [node name="Cube" type="KinematicBody2D"]
+position = Vector2( -64, 568 )
 collision_mask = 2
 script = ExtResource( 2 )
 
@@ -72,7 +73,6 @@ shape = SubResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1.1, 1.1 )
 limit_left = 0
 limit_bottom = 660
 limit_smoothed = true
