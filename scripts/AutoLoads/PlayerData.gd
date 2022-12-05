@@ -51,7 +51,6 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 		ty2 -= 1
 	g1y = (ty * 60) + 128
 	g2y = (ty2 * 60) - 128
-	print (ty, ty2)
 
 # TODO: Should all the vehicles be instantiated at _ready?
 func vehicle_transform (from: Vehicle, to: String) -> void:
