@@ -14,3 +14,4 @@ func play_song () -> void:
 
 func _process (delta: float) -> void:
 	background.modulate = PlayerData.bgcolor
+	background.position.x += (PlayerData.speed.x * PlayerData.speed_boost) * delta

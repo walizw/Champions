@@ -6,15 +6,11 @@ var velocity: = Vector2.ZERO
 onready var spr_a: = $SprA
 onready var spr_b: = $SprB
 
-onready var camera: = $Camera2D
-
 var angle: = 0.0
 
 var maxvsp: = 5000
 
 func _ready () -> void:
-	camera.current = true
-	
 	spr_a.modulate = PlayerData.color_a
 	spr_b.modulate = PlayerData.color_b
 
@@ -84,6 +80,8 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE and name != "Cube":
 		PlayerData.vehicle_transform (self, "CUBE")
 		PlayerData.reset_g2y ()
+		PlayerData.yscroll = true
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP and name != "Ship":
 		PlayerData.vehicle_transform (self, "SHIP")
 		PlayerData.calc_ground_y (pos, 10)
+		PlayerData.yscroll = false

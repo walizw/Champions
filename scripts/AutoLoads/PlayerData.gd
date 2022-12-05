@@ -18,8 +18,9 @@ var canring: = false # if true, and collided with a ring, do its thing?
 var gcolor: = Color.blue
 var bgcolor: = Color.blue
 
-var g1y: = 728
-var g2y: = -100000 # top ground y
+var yscroll: = true # if false, the camera won't go up
+var g1y: = 5578
+var g2y: = 0 # top ground y
 
 # some preloads
 var cube_vehicle: = preload ("res://prefabs/Vehicles/Cube.tscn")
@@ -31,26 +32,25 @@ func reset_vars ():
 	gravdir = 1
 	canring = false
 	
-	g1y = -100000
-	g2y = 728
+	g1y = 0
+	g2y = 5578
 
 func reset_g2y () -> void:
-	g1y = 728
-	g2y = -100000
+	g1y = 5578
+	g2y = 0
 
 # Calculates g1y and g2y
 func calc_ground_y (pos: Vector2, sep: int) -> void:
-	# TODO: This
 	var ty: = pos.y
 	
 	for i in floor (sep / 2):
-		if ty < 12:
+		if ty < 10:
 			ty += 1
 	var ty2: = ty
 	for i in sep:
 		ty2 -= 1
-	g1y = (ty * 60) + 128
-	g2y = (ty2 * 60) - 128
+	g1y = ((ty * 60) + 128) + 4850
+	g2y = ((ty2 * 60) - 128) + 4850
 
 # TODO: Should all the vehicles be instantiated at _ready?
 func vehicle_transform (from: Vehicle, to: String) -> void:
