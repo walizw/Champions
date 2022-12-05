@@ -17,4 +17,3 @@ func update_camera ():
 	
 	if not yscroll:
 		limit_top = PlayerData.g2y + 80
-		print (limit_top)

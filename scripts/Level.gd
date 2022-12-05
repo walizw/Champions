@@ -4,7 +4,6 @@ onready var audio_player: = $AudioPlayer
 onready var background: = get_node ("BackgroundLayer/Background")
 
 func _ready () -> void:
-	background.modulate = PlayerData.gcolor
 	play_song ()
 
 func play_song () -> void:
@@ -12,3 +11,6 @@ func play_song () -> void:
 	yield (get_tree ().create_timer (time_delay), "timeout")
 	
 	audio_player.play ()
+
+func _process (delta: float) -> void:
+	background.modulate = PlayerData.bgcolor

@@ -3,11 +3,17 @@ extends Control
 export (Array, Resource) var levels: Array
 export var main_level_tile: PackedScene
 
+onready var prev_level_btn: = $PrevLevel
+onready var next_level_btn: = $NextLevel
+
 var level_tiles: = []
 var in_level: = 0
 
 func _ready () -> void:
 	generate_tiles ()
+	
+	prev_level_btn.connect ("callback", self, "prev_level")
+	next_level_btn.connect ("callback", self, "next_level")
 
 func _process (delta: float) -> void:
 	if Input.is_action_just_pressed ("left"):
@@ -61,7 +67,7 @@ func generate_tiles () -> void:
 		level_tile.level_data = level_data
 		level_tiles.append (level_tile)
 		
-		level_tile.rect_position = Vector2 (offset, 0)
+		level_tile.rect_position = Vector2 (offset, -160)
 		offset += 1920
 		
 		add_child (level_tile)

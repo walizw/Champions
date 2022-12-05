@@ -6,6 +6,7 @@ var level_data: LevelData setget set_level_data
 func set_level_data (val: LevelData) -> void:
 	level_data = val
 	
-	$MainLevelTile/DifficultyFace.frame = level_data.difficulty
-	$Name.text = level_data.name
-	$StarsIcon/Stars.text = str (level_data.stars)
+	$SceneButton/DifficultyFace.frame = level_data.difficulty
+	$SceneButton/Name.text = level_data.name
+	$SceneButton/StarsIcon/Stars.text = str (level_data.stars)
+	$SceneButton.to_scene = level_data.scene_path
