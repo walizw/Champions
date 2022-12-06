@@ -80,7 +80,7 @@ animations = [ {
 extents = Vector2( 50, 25 )
 
 [sub_resource type="RectangleShape2D" id=15]
-extents = Vector2( 15, 15 )
+extents = Vector2( 20, 25 )
 
 [node name="Ship" type="KinematicBody2D" groups=["vehicle"]]
 scale = Vector2( 0.8, 0.8 )

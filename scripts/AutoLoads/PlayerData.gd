@@ -41,6 +41,7 @@ func reset_g2y () -> void:
 
 # Calculates g1y and g2y
 func calc_ground_y (pos: Vector2, sep: int) -> void:
+	print ("a")
 	var ty: = pos.y
 	
 	for i in floor (sep / 2):
@@ -54,10 +55,13 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 
 # TODO: Should all the vehicles be instantiated at _ready?
 func vehicle_transform (from: Vehicle, to: String) -> void:
+	if from.name == to:
+		return
+	
 	var ins: Vehicle
-	if to == "CUBE":
+	if to == "Cube":
 		ins = cube_vehicle.instance ()
-	elif to == "SHIP":
+	elif to == "Ship":
 		ins = ship_vehicle.instance ()
 	ins.global_position = from.global_position
 	get_tree ().get_root ().add_child (ins)

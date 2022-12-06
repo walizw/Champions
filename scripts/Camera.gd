@@ -14,16 +14,17 @@ func update_camera ():
 	
 	var player: Vehicle = vehicles [0]
 	var player_pos: = player.global_position
-	var pos: = get_camera_position ()
 	var view_size: = get_viewport ().size * zoom
+	var pos: = get_camera_position ()
+	var abs_pos: = pos - (view_size / 2)
 	
 	global_position.x = player_pos.x + (view_size.x / 4)
 	
 	if PlayerData.yscroll:
 		# TODO: Fix vertical scroll
-		# if player_pos.y < pos.y + (view_size.y / 100):
-		# 	global_position.y += (((player_pos.y - (view_size.y / 100)) - pos.y) * 0.2)
-		if player_pos.y > pos.y + (view_size.y / 5) * 2:
-			global_position.y += (((player_pos.y - (view_size.y / 5) * 2) - pos.y) * 0.2)
+		if player_pos.y < abs_pos.y + (view_size.y / 3.5):
+			global_position.y += (((player_pos.y - (view_size.y / 3.5)) - abs_pos.y) * 0.2)
+		if player_pos.y > abs_pos.y + (view_size.y / 3) * 2:
+			global_position.y += (((player_pos.y - (view_size.y / 3) * 2) - abs_pos.y) * 0.2)
 	else:
 		global_position.y += (PlayerData.g2y + (view_size.y / 1.75)) - pos.y

@@ -38,7 +38,7 @@ func die () -> void:
 
 func handle_special (tile_id: int, pos: Vector2) -> void:
 	if tile_id == -1:
-		print ("handle_special: Received a -1, should we fix this? how tho?")
+		print ("handle_special: Received a -1 at (%d, %d), should we fix this? how tho?" % [pos.x, pos.y])
 		return
 	
 	if tile_id == TileData.SPECIAL_TILE_RING_YELLOW and PlayerData.canring:
@@ -77,11 +77,11 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		velocity.y = -(PlayerData.speed.y + (PlayerData.speed.y * 0.8)) * PlayerData.gravdir
 	
 	# TODO: Portals
-	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE and name != "Cube":
-		PlayerData.vehicle_transform (self, "CUBE")
+	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE:
+		PlayerData.vehicle_transform (self, "Cube")
 		PlayerData.reset_g2y ()
 		PlayerData.yscroll = true
-	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP and name != "Ship":
-		PlayerData.vehicle_transform (self, "SHIP")
+	elif tile_id == TileData.SPECIAL_TILE_PORTAL_SHIP:
+		PlayerData.vehicle_transform (self, "Ship")
 		PlayerData.calc_ground_y (pos, 10)
 		PlayerData.yscroll = false
