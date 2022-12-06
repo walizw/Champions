@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://prefabs/Vehicles/Cube.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/GroundSpawner.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Camera.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/background1.png" type="Texture" id=4]
+[ext_resource path="res://assets/SpecialTiles.tres" type="TileSet" id=5]
+[ext_resource path="res://assets/TrapsTiles.tres" type="TileSet" id=6]
+[ext_resource path="res://assets/SolidTiles.tres" type="TileSet" id=7]
+[ext_resource path="res://scripts/Level.gd" type="Script" id=8]
+
+[node name="LevelTemplate" type="Node2D"]
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 5450.0 ],
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+offset = Vector2( -512, 4850 )
+transform = Transform2D( 1, 0, 0, 1, -512, 4850 )
+follow_viewport_enable = true
+
+[node name="Background" type="Sprite" parent="BackgroundLayer"]
+position = Vector2( 2048, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 1024 )
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 0, 5050 )
+current = true
+limit_left = 0
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+drag_margin_top = 0.5
+script = ExtResource( 3 )
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="SolidTiles" type="TileMap" parent="."]
+position = Vector2( 0, 4850 )
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 60, 60 )
+collision_layer = 2
+collision_mask = 0
+format = 1
+
+[node name="TrapTiles" type="TileMap" parent="."]
+position = Vector2( 0, 4850 )
+tile_set = ExtResource( 6 )
+cell_size = Vector2( 60, 60 )
+collision_layer = 4
+collision_mask = 0
+format = 1
+
+[node name="SpecialTiles" type="TileMap" parent="."]
+position = Vector2( 0, 4850 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 60, 60 )
+collision_layer = 16
+collision_mask = 0
+format = 1
+
+[node name="GroundSpawner" type="Node2D" parent="."]
+position = Vector2( 0, 4850 )
+script = ExtResource( 2 )
+
+[node name="Cube" parent="." instance=ExtResource( 1 )]
+position = Vector2( -60, 5420 )

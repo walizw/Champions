@@ -9,6 +9,7 @@
 [ext_resource path="res://prefabs/UI/SceneButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=8]
 [ext_resource path="res://prefabs/UI/SignalButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://prefabs/UI/menus/MainLevelTile.tscn" type="PackedScene" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -20,31 +21,24 @@ flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 2734.05, 2257.69, 125.699, 151.263 )
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1786.94, 879.774, 106.408, 238.681 )
+
+[sub_resource type="Resource" id=7]
 script = ExtResource( 8 )
 name = "Stereo Madness"
 scene_path = "res://scenes/Levels/StereoMadness.tscn"
 stars = 1
 difficulty = 1
 
-[sub_resource type="Resource" id=4]
+[sub_resource type="Resource" id=8]
 script = ExtResource( 8 )
 name = "Back on Track"
-scene_path = ""
+scene_path = "res://scenes/Levels/BackOnTrack.tscn"
 stars = 2
 difficulty = 1
-
-[sub_resource type="Resource" id=5]
-script = ExtResource( 8 )
-name = "Polargeist"
-scene_path = ""
-stars = 3
-difficulty = 2
-
-[sub_resource type="AtlasTexture" id=6]
-flags = 4
-atlas = ExtResource( 5 )
-region = Rect2( 1786.94, 879.774, 106.408, 238.681 )
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -131,6 +125,27 @@ rect_pivot_offset = Vector2( 62, 75 )
 texture_normal = SubResource( 2 )
 to_scene = "res://scenes/UI/Menu.tscn"
 
+[node name="PrevLevel" parent="." instance=ExtResource( 9 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 62.0
+margin_top = -119.0
+margin_right = 168.0
+margin_bottom = 119.0
+texture_normal = SubResource( 6 )
+flip_h = true
+
+[node name="NextLevel" parent="." instance=ExtResource( 9 )]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -168.0
+margin_top = -119.0
+margin_right = -62.0
+margin_bottom = 119.0
+texture_normal = SubResource( 6 )
+
 [node name="MainLevelSelector" parent="." instance=ExtResource( 6 )]
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -138,25 +153,5 @@ margin_left = 174.0
 margin_top = -301.0
 margin_right = -174.0
 margin_bottom = 301.0
-levels = [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ]
-
-[node name="PrevLevel" parent="MainLevelSelector" instance=ExtResource( 9 )]
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -119.0
-margin_right = -6.0
-margin_bottom = 119.0
-texture_normal = SubResource( 6 )
-flip_h = true
-
-[node name="NextLevel" parent="MainLevelSelector" instance=ExtResource( 9 )]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = 6.0
-margin_top = -119.0
-margin_right = 112.0
-margin_bottom = 119.0
-texture_normal = SubResource( 6 )
+levels = [ SubResource( 7 ), SubResource( 8 ) ]
+main_level_tile = ExtResource( 10 )

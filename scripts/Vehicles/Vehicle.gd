@@ -42,7 +42,7 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		return
 	
 	if tile_id == TileData.SPECIAL_TILE_RING_YELLOW and PlayerData.canring:
-		velocity.y = - PlayerData.speed.y * PlayerData.gravdir
+		velocity.y = -PlayerData.speed.y * PlayerData.gravdir
 		PlayerData.canring = false
 	elif tile_id == TileData.SPECIAL_TILE_RING_PINK and PlayerData.canring:
 		velocity.y = - (PlayerData.speed.y - (PlayerData.speed.y * 0.1)) * PlayerData.gravdir
@@ -67,7 +67,7 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		PlayerData.canring = false
 	
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_YELLOW:
-		velocity.y = -(PlayerData.speed.y * 1.5) * PlayerData.gravdir
+		velocity.y = -(PlayerData.speed.y * 1.35) * PlayerData.gravdir
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_PINK:
 		velocity.y = -(PlayerData.speed.y - (PlayerData.speed.y * 0.1)) * PlayerData.gravdir
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_BLUE:

@@ -3,8 +3,8 @@ extends Control
 export (Array, Resource) var levels: Array
 export var main_level_tile: PackedScene
 
-onready var prev_level_btn: = $PrevLevel
-onready var next_level_btn: = $NextLevel
+onready var prev_level_btn: = get_node ("../PrevLevel")
+onready var next_level_btn: = get_node ("../NextLevel")
 
 var level_tiles: = []
 var in_level: = 0
