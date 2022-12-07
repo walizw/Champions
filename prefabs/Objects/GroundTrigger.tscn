@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sheets/triggers_sheet.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Objects/Triggers/GroundTrigger.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 450.566, 392.691, 74.6143, 67.2992 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25, 40 )
+
+[node name="GroundTrigger" type="Area2D"]
+collision_layer = 32
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

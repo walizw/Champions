@@ -41,6 +41,8 @@ script = ExtResource( 3 )
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="Triggers" type="Node2D" parent="."]
+
 [node name="SolidTiles" type="TileMap" parent="."]
 position = Vector2( 0, 4850 )
 tile_set = ExtResource( 7 )

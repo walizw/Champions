@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "BaseTrigger",
+"language": "GDScript",
+"path": "res://scripts/Objects/BaseTrigger.gd"
+}, {
 "base": "TextureButton",
 "class": "GDButton",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://scripts/Vehicles/Vehicle.gd"
 } ]
 _global_script_class_icons={
+"BaseTrigger": "",
 "GDButton": "",
 "LevelData": "",
 "MainLevelTile": "",
@@ -88,6 +94,7 @@ right={
 2d_physics/layer_3="traps"
 2d_physics/layer_4="rings"
 2d_physics/layer_5="special (pads, portals, speeds, etc)"
+2d_physics/layer_6="triggers"
 
 [physics]
 
