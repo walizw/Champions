@@ -53,7 +53,7 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 	g1y = ((ty * 60) + 128) + 4850
 	g2y = ((ty2 * 60) - 128) + 4850
 
-# TODO: Should all the vehicles be instantiated at _ready?
+# TODO [$6394da18adf7d80007cb241e]: Should all the vehicles be instantiated at _ready?
 # I am not sure if this might affect the performance, should there be variables
 # containing an instance of all the vehicles, so we would just need to add them as
 # child to the tree?

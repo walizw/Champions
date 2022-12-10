@@ -6,7 +6,7 @@ onready var background: = $ParallaxBackground/ParallaxLayer/Background
 export var initial_bgcolor: = Color.blue
 export var initial_gcolor: = Color.blue
 
-# TODO: Make this work
+# TODO [$6394da18adf7d80007cb2420]: Make this work
 export var initial_speedboost: = 1
 export({cube=0, ship=1, ball=2, ufo=3, wave=4, robot=5, spider=6}) var initial_vehicle: = 0
 

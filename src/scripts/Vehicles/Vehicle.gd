@@ -30,7 +30,7 @@ func _physics_process (delta: float) -> void:
 	
 	floor_particles.emitting = is_on_floor ()
 	
-	# TODO: This might give errors in the ship
+	# TODO [$6394da18adf7d80007cb2426]: This might give errors in the ship
 	if Input.is_action_just_pressed ("jump") and not is_on_floor ():
 		PlayerData.canring = true
 	
@@ -42,7 +42,7 @@ func move_vehicle (delta: float) -> void:
 	velocity.y = clamp (velocity.y + ((PlayerData.grav * delta) * PlayerData.gravdir), -maxvsp, maxvsp)
 
 func die () -> void:
-	# TODO: Die
+	# TODO [$6394da18adf7d80007cb2427]: Die
 	# queue_free ()
 	get_tree ().paused = true
 
@@ -75,10 +75,10 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		self.trail = true
 	
 	elif tile_id == TileData.SPECIAL_TILE_DASH_GREEN and PlayerData.canring:
-		# TODO: Dash
+		# TODO [$6394da18adf7d80007cb2428]: Dash
 		PlayerData.canring = false
 	elif tile_id == TileData.SPECIAL_TILE_DASH_PINK and PlayerData.canring:
-		# TODO: Dash
+		# TODO [$6394da18adf7d80007cb2429]: Dash
 		PlayerData.canring = false
 	
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_YELLOW:
@@ -95,7 +95,7 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		velocity.y = -(PlayerData.speed.y + (PlayerData.speed.y * 0.8)) * PlayerData.gravdir
 		self.trail = true
 	
-	# TODO: Portals
+	# TODO [$6394da18adf7d80007cb242a]: Portals
 	elif tile_id == TileData.SPECIAL_TILE_PORTAL_CUBE:
 		PlayerData.vehicle_transform (self, "Cube")
 		PlayerData.reset_g2y ()

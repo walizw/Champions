@@ -75,7 +75,7 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		var i: = 1
 		while tile == -1:
 			# We will try to look for a tile in different directions
-			# TODO: This is temporary
+			# TODO [$6394da18adf7d80007cb2424]: This is temporary
 			var dirs: = [
 				Vector2 (-i,  0), # left
 				Vector2 ( 0, -i), # top
