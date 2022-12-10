@@ -19,6 +19,7 @@ func _ready () -> void:
 	spr_b.frame = PlayerData.ship
 	
 	scale = Vector2 (0.8, 0.8)
+	self.trail = true
 
 func _physics_process (delta: float) -> void:
 	rotate_ship ()

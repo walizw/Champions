@@ -12,6 +12,9 @@ func _physics_process (delta: float) -> void:
 	
 	velocity.y = move_and_slide (velocity, Vector2.UP if PlayerData.gravdir == 1 else Vector2.DOWN).y
 	
+	if trail and is_on_floor ():
+		self.trail = false
+	
 	draw_cubes ()
 
 func jump () -> void:
