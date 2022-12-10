@@ -37,10 +37,6 @@ func die () -> void:
 	get_tree ().paused = true
 
 func handle_special (tile_id: int, pos: Vector2) -> void:
-	if tile_id == -1:
-		print ("handle_special: Received a -1 at (%d, %d), should we fix this? how tho?" % [pos.x, pos.y])
-		return
-	
 	if tile_id == TileData.SPECIAL_TILE_RING_YELLOW and PlayerData.canring:
 		velocity.y = -PlayerData.speed.y * PlayerData.gravdir
 		PlayerData.canring = false

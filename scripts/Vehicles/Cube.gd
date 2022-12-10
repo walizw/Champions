@@ -69,4 +69,29 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		var world_pos: = tmap.world_to_map (tmap.to_local (global_position))
 		var tile: = tmap.get_cellv (world_pos)
 		
+		var i: = 1
+		while tile == -1:
+			# We will try to look for a tile in different directions
+			# TODO: This is temporary
+			var dirs: = [
+				Vector2 (-i,  0), # left
+				Vector2 ( 0, -i), # top
+				Vector2 ( i,  0), # right
+				Vector2 ( 0,  i), # bottom
+				Vector2 (-i,  i), # bottom-left
+				Vector2 (-i, -i), # top left
+				Vector2 ( i, -i), # top right,
+				Vector2 ( i,  i)  # bottom right
+			]
+			
+			for j in dirs:
+				var cur_dir: Vector2 = j
+				var new_pos: = world_pos + cur_dir
+				var new_tile: = tmap.get_cellv (new_pos)
+				
+				if new_tile != -1:
+					tile = new_tile
+					break
+			i += 1
+		
 		handle_special (tile, world_pos)
