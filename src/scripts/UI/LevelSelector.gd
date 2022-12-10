@@ -41,15 +41,24 @@ func level_anim (dir: int) -> void:
 	for i in level_tiles.size ():
 		var level_tile: MainLevelTile = level_tiles [i]
 		var tween: = create_tween ().set_trans (Tween.TRANS_SINE)
-		# @todo Refactor level sector
-		# @body I was thinking I could do something like: there is only one Level Tile, and the moving left and right, just adds or subtracts to the current level variable, if moved left, the level tile's position would be (1920*2) and then the animation is played, and if moving left, set its position to -1920 and play the animation.
+		# TODO: Refactor level sector
+		# I was thinking I could do something like: there is only one Level Tile, and
+		# the moving left and right, just adds or subtracts to the current level
+		# variable, if moved left, the level tile's position would be (1920*2) and then
+		# the animation is played, and if moving left, set its position to -1920 and play
+		# the animation.
 		var new_position: = Vector2 (level_tile.rect_position.x - (1920 * dir), level_tile.rect_position.y)
 		tween.tween_property (level_tile, "rect_position", Vector2 (new_position.x - (120 * dir), new_position.y), 0.175)
 		tween.tween_property (level_tile, "rect_position", Vector2 (new_position.x + (120 * dir), new_position.y), 0.083)
 		tween.tween_property (level_tile, "rect_position", new_position, 0.085)
 
 func restart_carousel (first: bool) -> void:
-	# TODO: Restart left
+	
+	# TODO: Restart left in level selector
+	# When you click the left arrow in the level selector, and you are in the first
+	# level (i.e. Stereo Madness) it should change to the last available level. This
+	# currently doesn't work, and should be fixed with the level selector refactoring.
+	# At least, it should be easier to fix! (I hope so)
 	
 	in_level = 0
 	var offset: = 1920
