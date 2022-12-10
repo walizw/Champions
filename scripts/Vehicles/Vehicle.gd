@@ -5,6 +5,7 @@ var velocity: = Vector2.ZERO
 
 onready var spr_a: = $SprA
 onready var spr_b: = $SprB
+onready var floor_particles: = $FloorParticles
 
 var angle: = 0.0
 
@@ -13,12 +14,15 @@ var maxvsp: = 5000
 func _ready () -> void:
 	spr_a.modulate = PlayerData.color_a
 	spr_b.modulate = PlayerData.color_b
+	floor_particles.process_material.color = PlayerData.color_b
 
 func _physics_process (delta: float) -> void:
 	if is_on_wall ():# or is_on_ceiling():
 		die ()
 	
 	move_vehicle (delta)
+	
+	floor_particles.emitting = is_on_floor ()
 	
 	# TODO: This might give errors in the ship
 	if Input.is_action_just_pressed ("jump") and not is_on_floor ():

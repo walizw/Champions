@@ -4,6 +4,8 @@ onready var cube:   = $Cube
 onready var cube_a: = $Cube/CubeA
 onready var cube_b: = $Cube/CubeB
 
+onready var rocket_particles: = $RocketParticles
+
 func _ready () -> void:
 	maxvsp = 800
 	
@@ -20,6 +22,8 @@ func _ready () -> void:
 
 func _physics_process (delta: float) -> void:
 	rotate_ship ()
+	
+	rocket_particles.emitting = Input.is_action_pressed ("jump")
 	
 	if Input.is_action_pressed ("jump"):
 		jump ()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://sheets/cubes.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Vehicles/Cube.gd" type="Script" id=2]
+[ext_resource path="res://prefabs/FX/FloorParticles.tscn" type="PackedScene" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -59,6 +60,9 @@ extents = Vector2( 15, 15 )
 position = Vector2( -64, 568 )
 collision_mask = 2
 script = ExtResource( 2 )
+
+[node name="FloorParticles" parent="." instance=ExtResource( 3 )]
+position = Vector2( -26, 23 )
 
 [node name="SprB" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
