@@ -21,7 +21,6 @@ func update_camera ():
 	global_position.x = player_pos.x + (view_size.x / 4)
 	
 	if PlayerData.yscroll:
-		# TODO: Fix vertical scroll
 		if player_pos.y < abs_pos.y + (view_size.y / 3.5):
 			global_position.y += (((player_pos.y - (view_size.y / 3.5)) - abs_pos.y) * 0.2)
 		if player_pos.y > abs_pos.y + (view_size.y / 3) * 2:

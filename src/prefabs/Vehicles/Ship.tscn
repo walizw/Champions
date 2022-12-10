@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sheets/cubes.png" type="Texture" id=1]
-[ext_resource path="res://scripts/Ship.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Vehicles/Ship.gd" type="Script" id=2]
 [ext_resource path="res://sheets/ships.png" type="Texture" id=3]
 [ext_resource path="res://prefabs/FX/Trail.tscn" type="PackedScene" id=4]
 [ext_resource path="res://prefabs/FX/CPUFloorParticles.tscn" type="PackedScene" id=5]
