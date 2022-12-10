@@ -1,5 +1,6 @@
 extends Control
-# TODO: Play the song
+# @todo Play the menu song
+# @body Should there be an audio stream generated in PlayerData that has those looping songs, and it's paused and resumen when entering and leaving a level, respectively?
 
 onready var background: = $BackgroundLayer/Background
 onready var ground: = $GroundLayer/Ground
