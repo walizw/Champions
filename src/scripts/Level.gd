@@ -7,6 +7,7 @@ export var initial_bgcolor: = Color.blue
 export var initial_gcolor: = Color.blue
 
 func _ready () -> void:
+	yield (self, "ready")
 	play_song ()
 	
 	PlayerData.bgcolor = initial_bgcolor
