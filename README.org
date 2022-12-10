@@ -8,42 +8,4 @@ project.
 
 ** Screenshots
 
-TODO: Screenshots :D
-
-** TODO
-
-The following is a list of things that I want to implement and haven't done it
-yet:
-
-- [ ] Finish the level section menu.
-  - I could just make one button (instead of generating them all) and going
-    through all the levels in the array, and then emulating the animation?
-- [ ] Level completion (basically, you can complete a level.)
-- [ ] Death and respawning.
-- [ ] Calculate the completion percentage of a game.
-  - I could do this by getting the farthest tile of all tilesets, gettings its
-    position and getting the percentage by comparing it with the current
-    vehicle.
-- [ ] Saving and loading.
-- [ ] Cube selection (I was thinking on making it all like a store?)
-- [ ] Extra menu.
-- [ ] User accounts.
-- [ ] Level Editor.
-- [ ] Level upload and download.
-- [ ] Moderator accounts.
-  - They can set online level stars, difficulty, featured, epic, daily and
-    weekly.
-- [ ] Hall of fame and weekly demon.
-- [ ] Daily quests.
-- [ ] Top 100.
-- [ ] Top creators.
-- [ ] Wouldn't it be cool to have a country top? Like top 100 Colombia.
-- [ ] All the originals geometry dash level.
-- [ ] Realtime multiplayer.
-- [ ] The ball vehicle.
-- [ ] The UFO vehicle.
-- [ ] The wave vehicle.
-- [ ] The spider vehicle.
-- [ ] The robot vehicle.
-- [ ] Port the game to Godot 4 (when it's ready, as it crashes a lot in my
-      computer)
+TODO: Screenshots p
