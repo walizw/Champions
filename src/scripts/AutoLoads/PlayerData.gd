@@ -54,6 +54,9 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 	g2y = ((ty2 * 60) - 128) + 4850
 
 # TODO: Should all the vehicles be instantiated at _ready?
+# I am not sure if this might affect the performance, should there be variables
+# containing an instance of all the vehicles, so we would just need to add them as
+# child to the tree?
 func vehicle_transform (from: Vehicle, to: String) -> void:
 	if from.name == to:
 		return
