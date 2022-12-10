@@ -14,11 +14,9 @@ func _on_button_up () -> void:
 	
 	yield (tween, "finished")
 	
-	# if Rect2 (rect_position, rect_size).has_point (get_global_mouse_position ()):
-	
 	if not to_scene:
 		return
 	
-	if Rect2 (rect_position, rect_size).has_point (get_global_mouse_position ()):
+	if Rect2 (rect_global_position, rect_size).has_point (get_global_mouse_position ()):
 		if ResourceLoader.exists (to_scene):
 			get_tree ().change_scene (to_scene)

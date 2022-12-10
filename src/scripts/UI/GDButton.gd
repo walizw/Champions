@@ -2,10 +2,11 @@ extends TextureButton
 class_name GDButton
 
 var tween: SceneTreeTween
-var initial_scale: = rect_scale
+var initial_scale: = Vector2.ZERO
 
 func _ready () -> void:
 	rect_pivot_offset = rect_size / 2
+	initial_scale = rect_scale
 
 func mouse_down (object: Object) -> void:
 	if tween:

@@ -117,10 +117,10 @@ rect_pivot_offset = Vector2( 612, 71 )
 texture = SubResource( 1 )
 
 [node name="SceneButton" parent="." instance=ExtResource( 7 )]
-margin_left = 32.0
-margin_top = 32.0
-margin_right = 157.0
-margin_bottom = 182.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 165.0
+margin_bottom = 191.0
 rect_pivot_offset = Vector2( 62, 75 )
 texture_normal = SubResource( 2 )
 to_scene = "res://scenes/UI/Menu.tscn"
