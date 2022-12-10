@@ -1,25 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://sheets/cubes.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Ship.gd" type="Script" id=2]
 [ext_resource path="res://sheets/ships.png" type="Texture" id=3]
-[ext_resource path="res://prefabs/FX/FloorParticles.tscn" type="PackedScene" id=4]
-
-[sub_resource type="Curve" id=15]
-_data = [ Vector2( 0, 0.697727 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=16]
-curve = SubResource( 15 )
-
-[sub_resource type="ParticlesMaterial" id=17]
-flag_disable_z = true
-spread = 60.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = -300.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale_curve = SubResource( 16 )
-color = Color( 0.909804, 0.976471, 0.254902, 0.658824 )
+[ext_resource path="res://prefabs/FX/CPUFloorParticles.tscn" type="PackedScene" id=5]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -104,13 +88,12 @@ scale = Vector2( 0.8, 0.8 )
 collision_mask = 2
 script = ExtResource( 2 )
 
-[node name="FloorParticles" parent="." instance=ExtResource( 4 )]
-position = Vector2( 0, 17.5 )
+[node name="FloorParticles" parent="." instance=ExtResource( 5 )]
+position = Vector2( -12.5, 22.5 )
 
-[node name="RocketParticles" parent="." instance=ExtResource( 4 )]
-position = Vector2( -42.5, 7.5 )
-lifetime = 0.4
-process_material = SubResource( 17 )
+[node name="RocketParticles" parent="." instance=ExtResource( 5 )]
+position = Vector2( -43.75, 8.75 )
+color = Color( 0.843137, 0.909804, 0.192157, 0.658824 )
 
 [node name="Cube" type="Node2D" parent="."]
 scale = Vector2( 0.559, 0.559 )

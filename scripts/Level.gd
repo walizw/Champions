@@ -1,7 +1,7 @@
 extends Node
 
 onready var audio_player: = $AudioPlayer
-onready var background: = get_node ("BackgroundLayer/Background")
+onready var background: = $ParallaxBackground/ParallaxLayer/Background
 
 export var initial_bgcolor: = Color.blue
 export var initial_gcolor: = Color.blue
@@ -20,4 +20,3 @@ func play_song () -> void:
 
 func _process (delta: float) -> void:
 	background.modulate = PlayerData.bgcolor
-	background.position.x += (PlayerData.speed.x * PlayerData.speed_boost) * delta

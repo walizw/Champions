@@ -14,7 +14,7 @@ var maxvsp: = 5000
 func _ready () -> void:
 	spr_a.modulate = PlayerData.color_a
 	spr_b.modulate = PlayerData.color_b
-	floor_particles.process_material.color = PlayerData.color_b
+	floor_particles.modulate = PlayerData.color_b
 
 func _physics_process (delta: float) -> void:
 	if is_on_wall ():# or is_on_ceiling():

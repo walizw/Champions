@@ -16,19 +16,6 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
-[node name="BackgroundLayer" type="CanvasLayer" parent="."]
-layer = -100
-offset = Vector2( -512, 4850 )
-transform = Transform2D( 1, 0, 0, 1, -512, 4850 )
-follow_viewport_enable = true
-
-[node name="Background" type="Sprite" parent="BackgroundLayer"]
-position = Vector2( 2048, 0 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 2048, 1024 )
-
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, 5050 )
 current = true
@@ -73,3 +60,16 @@ script = ExtResource( 2 )
 
 [node name="Cube" parent="." instance=ExtResource( 1 )]
 position = Vector2( -60, 5420 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 4850 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 1024 )
