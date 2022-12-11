@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 
 PlayerData="*res://scripts/AutoLoads/PlayerData.gd"
 TileData="*res://scripts/AutoLoads/TileData.gd"
+GameData="*res://scripts/AutoLoads/GameData.gd"
 
 [display]
 

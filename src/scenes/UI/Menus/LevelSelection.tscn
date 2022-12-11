@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/sprites/background2.png" type="Texture" id=1]
 [ext_resource path="res://assets/sprites/ground1.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://sheets/ui/ui_sheet.png" type="Texture" id=5]
 [ext_resource path="res://prefabs/UI/MainLevelSelector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://prefabs/UI/SceneButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=8]
 [ext_resource path="res://prefabs/UI/SignalButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://prefabs/UI/menus/MainLevelTile.tscn" type="PackedScene" id=10]
 
@@ -25,20 +24,6 @@ region = Rect2( 2734.05, 2257.69, 125.699, 151.263 )
 flags = 4
 atlas = ExtResource( 5 )
 region = Rect2( 1786.94, 879.774, 106.408, 238.681 )
-
-[sub_resource type="Resource" id=7]
-script = ExtResource( 8 )
-name = "Stereo Madness"
-scene_path = "res://scenes/Levels/StereoMadness.tscn"
-stars = 1
-difficulty = 1
-
-[sub_resource type="Resource" id=8]
-script = ExtResource( 8 )
-name = "Back on Track"
-scene_path = "res://scenes/Levels/BackOnTrack.tscn"
-stars = 2
-difficulty = 1
 
 [node name="LevelSelection" type="Control"]
 anchor_right = 1.0
@@ -153,5 +138,4 @@ margin_left = 174.0
 margin_top = -301.0
 margin_right = -174.0
 margin_bottom = 301.0
-levels = [ SubResource( 7 ), SubResource( 8 ) ]
 main_level_tile = ExtResource( 10 )

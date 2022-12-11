@@ -1,6 +1,5 @@
 extends Control
 
-export (Array, Resource) var levels: Array
 export var main_level_tile: PackedScene
 
 onready var prev_level_btn: = get_node ("../PrevLevel")
@@ -41,7 +40,7 @@ func level_anim (dir: int) -> void:
 	for i in level_tiles.size ():
 		var level_tile: MainLevelTile = level_tiles [i]
 		var tween: = create_tween ().set_trans (Tween.TRANS_SINE)
-		# TODO [$6394da18adf7d80007cb2421]: Refactor level sector
+		# TODO Refactor level sector
 		# I was thinking I could do something like: there is only one Level Tile, and
 		# the moving left and right, just adds or subtracts to the current level
 		# variable, if moved left, the level tile's position would be (1920*2) and then
@@ -54,7 +53,7 @@ func level_anim (dir: int) -> void:
 
 func restart_carousel (first: bool) -> void:
 	
-	# TODO [$6394da18adf7d80007cb2422]: Restart left in level selector
+	# TODO Restart left in level selector
 	# When you click the left arrow in the level selector, and you are in the first
 	# level (i.e. Stereo Madness) it should change to the last available level. This
 	# currently doesn't work, and should be fixed with the level selector refactoring.
@@ -71,8 +70,8 @@ func restart_carousel (first: bool) -> void:
 func generate_tiles () -> void:
 	var offset: = 0.0
 	
-	for i in levels.size ():
-		var level_data: LevelData = levels [i]
+	for i in GameData.levels.size ():
+		var level_data: LevelData = GameData.levels [i]
 		var level_tile: MainLevelTile = main_level_tile.instance ()
 		level_tile.level_data = level_data
 		level_tiles.append (level_tile)

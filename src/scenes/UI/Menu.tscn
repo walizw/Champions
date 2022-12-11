@@ -107,49 +107,38 @@ margin_bottom = 1034.0
 rect_scale = Vector2( 0.85, 0.85 )
 
 [node name="PlayButton" parent="." instance=ExtResource( 2 )]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -209.0
-margin_top = -230.5
-margin_right = 209.0
-margin_bottom = 184.5
+margin_left = 751.0
+margin_top = 309.5
+margin_right = 1168.0
+margin_bottom = 724.5
 rect_pivot_offset = Vector2( 214, 206 )
 texture_normal = SubResource( 1 )
 to_scene = "res://scenes/UI/Menus/LevelSelection.tscn"
 
 [node name="CharacterButton" parent="." instance=ExtResource( 2 )]
-anchor_top = 0.5
-anchor_bottom = 0.5
 margin_left = 360.0
-margin_top = -156.5
+margin_top = 384.0
 margin_right = 626.0
-margin_bottom = 108.5
-rect_pivot_offset = Vector2( 214, 206 )
+margin_bottom = 649.0
+rect_pivot_offset = Vector2( 133, 132 )
 texture_normal = SubResource( 2 )
 
 [node name="OnlineButton" parent="." instance=ExtResource( 2 )]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -592.0
-margin_top = -156.5
-margin_right = -328.0
-margin_bottom = 108.5
-rect_pivot_offset = Vector2( 214, 206 )
+margin_left = 1328.0
+margin_top = 384.0
+margin_right = 1592.0
+margin_bottom = 649.0
+rect_pivot_offset = Vector2( 132, 132 )
 texture_normal = SubResource( 3 )
 to_scene = "res://scenes/UI/Menus/ExtraMenu.tscn"
 
 [node name="DailyButton" parent="." instance=ExtResource( 1 )]
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_bottom = 0.5
-margin_left = -212.0
-margin_top = -163.0
-margin_right = -24.0
-margin_bottom = 3.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 1708.0
+margin_top = 377.0
+margin_right = 1896.0
+margin_bottom = 792.0
 
 [node name="DevContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
@@ -159,10 +148,12 @@ margin_top = -230.0
 margin_right = 433.0
 margin_bottom = 8.0
 rect_scale = Vector2( 0.75, 0.75 )
+custom_constants/separation = 20
 
 [node name="SocialNetworks" type="HBoxContainer" parent="DevContainer"]
 margin_right = 401.0
 margin_bottom = 121.0
+custom_constants/separation = 20
 
 [node name="FacebookButton" parent="DevContainer/SocialNetworks" instance=ExtResource( 1 )]
 anchor_right = 0.0
@@ -175,8 +166,8 @@ texture_normal = SubResource( 7 )
 [node name="TwitterButton" parent="DevContainer/SocialNetworks" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 125.0
-margin_right = 245.0
+margin_left = 141.0
+margin_right = 261.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 120, 120 )
 texture_normal = SubResource( 8 )
@@ -184,8 +175,8 @@ texture_normal = SubResource( 8 )
 [node name="YoutubeButton" parent="DevContainer/SocialNetworks" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 249.0
-margin_right = 369.0
+margin_left = 281.0
+margin_right = 401.0
 margin_bottom = 121.0
 rect_min_size = Vector2( 120, 120 )
 texture_normal = SubResource( 9 )
@@ -193,9 +184,9 @@ texture_normal = SubResource( 9 )
 [node name="RubrubIcon" parent="DevContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 125.0
+margin_top = 141.0
 margin_right = 401.0
-margin_bottom = 238.0
+margin_bottom = 254.0
 rect_min_size = Vector2( 401, 113 )
 texture_normal = SubResource( 10 )
 

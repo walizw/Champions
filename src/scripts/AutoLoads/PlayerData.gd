@@ -1,19 +1,14 @@
 extends Node
 
-var speed: = Vector2 (615, 1200)
-
 var cube: = 1 # the frame of the cube
-var ship: = 1
+var ship: = 1 # the frame of the ship
 
 var color_a: = Color.yellow
 var color_b: = Color.aqua
 
 var speed_boost: = 1 # this is used for speeds, as it multiplies the base speed
 
-var grav: = 5600 # gravity
 var gravdir: = 1 # if -1, the player will be upside down
-
-var canring: = false # if true, and collided with a ring, do its thing?
 
 var gcolor: = Color.blue
 var bgcolor: = Color.blue
@@ -30,7 +25,6 @@ func reset_vars ():
 	# Useful when changing levels
 	speed_boost = 1
 	gravdir = 1
-	canring = false
 	
 	g1y = 0
 	g2y = 5578
@@ -53,7 +47,7 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 	g1y = ((ty * 60) + 128) + 4850
 	g2y = ((ty2 * 60) - 128) + 4850
 
-# TODO [$6394da18adf7d80007cb241e]: Should all the vehicles be instantiated at _ready?
+# TODO Should all the vehicles be instantiated at _ready?
 # I am not sure if this might affect the performance, should there be variables
 # containing an instance of all the vehicles, so we would just need to add them as
 # child to the tree?
