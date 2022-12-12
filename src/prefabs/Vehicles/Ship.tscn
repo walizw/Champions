@@ -11,8 +11,9 @@
 [sub_resource type="Curve" id=19]
 _data = [ Vector2( 0, 0.690184 ), 0.0, 0.0, 0, 0, Vector2( 0.998387, 0.990798 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 50, 25 )
+[sub_resource type="CapsuleShape2D" id=20]
+radius = 20.0
+height = 55.0
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 20, 25 )
@@ -62,12 +63,13 @@ frames = ExtResource( 7 )
 offset = Vector2( 48, 58 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -11.25 )
-shape = SubResource( 7 )
+position = Vector2( -1.25, -15 )
+rotation = 1.5708
+shape = SubResource( 20 )
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2( 0, -11.25 )
-collision_mask = 28
+collision_mask = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 18 )

@@ -64,8 +64,8 @@ func reset_angle (_angle) -> void:
 
 
 func _on_Hitbox_body_entered(body: Node) -> void:
-	if body is TileMap and body.collision_layer == 4:
-		# this is a trap
+	if (body is TileMap and body.collision_layer == 4) or body.collision_layer == 2:
+		# this is a trap or a wall
 		die ()
 	elif body is TileMap and body.collision_layer == 16:
 		var tmap: TileMap = body

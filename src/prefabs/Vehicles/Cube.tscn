@@ -40,7 +40,7 @@ animation = "layer_a"
 shape = SubResource( 7 )
 
 [node name="Hitbox" type="Area2D" parent="."]
-collision_mask = 28
+collision_mask = 30
 __meta__ = {
 "_editor_description_": "Used for dying, or colliding with pads, orbs, portals and speeds"
 }
