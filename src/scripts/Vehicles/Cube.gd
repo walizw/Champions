@@ -18,7 +18,7 @@ func _physics_process (delta: float) -> void:
 	draw_cubes ()
 
 func jump () -> void:
-	velocity.y = -PlayerData.speed.y * PlayerData.gravdir
+	velocity.y = -speed.y * PlayerData.gravdir
 
 func draw_cubes () -> void:
 	spr_a.flip_v = true if PlayerData.gravdir == -1 else false
@@ -75,7 +75,6 @@ func _on_Hitbox_body_entered(body: Node) -> void:
 		var i: = 1
 		while tile == -1:
 			# We will try to look for a tile in different directions
-			# TODO [$6394da18adf7d80007cb2424]: This is temporary
 			var dirs: = [
 				Vector2 (-i,  0), # left
 				Vector2 ( 0, -i), # top

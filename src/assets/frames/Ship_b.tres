@@ -1,0 +1,16 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=2]
+
+[ext_resource path="res://sheets/ships.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 0, 476, 105, 70 )
+
+[resource]
+animations = [ {
+"frames": [ SubResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.0
+} ]

@@ -58,25 +58,25 @@ func set_trail (trail_val: bool) -> void:
 
 func handle_special (tile_id: int, pos: Vector2) -> void:
 	if tile_id == TileData.SPECIAL_TILE_RING_YELLOW and canring:
-		velocity.y = -PlayerData.speed.y * PlayerData.gravdir
+		velocity.y = -speed.y * PlayerData.gravdir
 		canring = false
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_RING_PINK and canring:
-		velocity.y = - (PlayerData.speed.y - (PlayerData.speed.y * 0.1)) * PlayerData.gravdir
+		velocity.y = - (speed.y - (speed.y * 0.1)) * PlayerData.gravdir
 		canring = false
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_RING_BLUE and canring:
 		PlayerData.gravdir *= -1
-		velocity.y = PlayerData.speed.y * PlayerData.gravdir
+		velocity.y = speed.y * PlayerData.gravdir
 		canring = false
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_RING_ORANGE and canring:
-		velocity.y = -(PlayerData.speed.y + (PlayerData.speed.y * 0.2)) * PlayerData.gravdir
+		velocity.y = -(speed.y + (speed.y * 0.2)) * PlayerData.gravdir
 		canring = false
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_RING_GREEN and canring:
 		PlayerData.gravdir *= -1
-		velocity.y = -PlayerData.speed.y * PlayerData.gravdir
+		velocity.y = -speed.y * PlayerData.gravdir
 		canring = false
 		self.trail = true
 	
@@ -88,17 +88,17 @@ func handle_special (tile_id: int, pos: Vector2) -> void:
 		canring = false
 	
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_YELLOW:
-		velocity.y = -(PlayerData.speed.y * 1.35) * PlayerData.gravdir
+		velocity.y = -(speed.y * 1.35) * PlayerData.gravdir
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_PINK:
-		velocity.y = -(PlayerData.speed.y - (PlayerData.speed.y * 0.1)) * PlayerData.gravdir
+		velocity.y = -(speed.y - (speed.y * 0.1)) * PlayerData.gravdir
 		self.trail = true
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_BLUE:
 		PlayerData.gravdir *= -1
 		self.trail = true
-		velocity.y = PlayerData.speed.y * PlayerData.gravdir
+		velocity.y = speed.y * PlayerData.gravdir
 	elif tile_id == TileData.SPECIAL_TILE_BUMP_ORANGE:
-		velocity.y = -(PlayerData.speed.y + (PlayerData.speed.y * 0.8)) * PlayerData.gravdir
+		velocity.y = -(speed.y + (speed.y * 0.8)) * PlayerData.gravdir
 		self.trail = true
 	
 	# TODO Portals

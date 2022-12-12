@@ -35,8 +35,7 @@ func reset_g2y () -> void:
 
 # Calculates g1y and g2y
 func calc_ground_y (pos: Vector2, sep: int) -> void:
-	print ("a")
-	var ty: = pos.y
+	var ty: int = pos.y if pos.y < 2 else 5
 	
 	for i in floor (sep / 2):
 		if ty < 10:
