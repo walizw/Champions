@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 60, 540 )
+
+[node name="WinWall" type="Node2D"]
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+position = Vector2( -60, 0 )
+shape = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 500
+lifetime = 2.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 540 )
+spread = 90.0
+gravity = Vector2( -200, 0 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 0, -540, 0, 540 )
+default_color = Color( 1, 1, 1, 1 )

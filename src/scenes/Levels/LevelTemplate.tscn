@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://prefabs/Vehicles/Cube.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/GroundSpawner.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/TrapsTiles.tres" type="TileSet" id=6]
 [ext_resource path="res://assets/SolidTiles.tres" type="TileSet" id=7]
 [ext_resource path="res://scripts/Level.gd" type="Script" id=8]
+[ext_resource path="res://prefabs/Objects/WinWall.tscn" type="PackedScene" id=9]
 
 [node name="LevelTemplate" type="Node2D"]
 script = ExtResource( 8 )
@@ -15,6 +16,21 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 5450.0 ],
 "_edit_vertical_guides_": [  ]
 }
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 4850 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2048, 1024 )
+
+[node name="WinWall" parent="." instance=ExtResource( 9 )]
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2( 0, 5050 )
@@ -60,16 +76,3 @@ script = ExtResource( 2 )
 
 [node name="Cube" parent="." instance=ExtResource( 1 )]
 position = Vector2( -60, 5420 )
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.5, 1 )
-motion_mirroring = Vector2( 2048, 0 )
-
-[node name="Background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 0, 4850 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 2048, 1024 )

@@ -3,6 +3,10 @@ extends Node
 onready var audio_player: = $AudioPlayer
 onready var background: = $ParallaxBackground/ParallaxLayer/Background
 
+onready var win_wall: = $WinWall
+onready var win_wall_area: = $WinWall/Area
+onready var camera: = $Camera
+
 export var initial_bgcolor: = Color.blue
 export var initial_gcolor: = Color.blue
 
@@ -32,6 +36,19 @@ func _ready () -> void:
 		var total_len: = (len_rect.position.x + len_rect.size.x) * tile.cell_size.x
 		if total_len > level_length:
 			level_length = total_len
+	
+	win_wall.position.x = level_length + (60 * 3)
+	camera.limit_right = win_wall.position.x
+	
+	win_wall_area.connect ("body_entered", self, "win_level")
+
+func win_level (body: Node) -> void:
+	# TODO Win Level
+	# When this method is called, play an animation and update the GameData progress.
+	# The variables such as the stars this levels gives must be stored somewhere, so they
+	# are awarded to the player.
+	print ("TODO Win Level")
+	audio_player.stop ()
 
 func play_song () -> void:
 	var time_delay: = AudioServer.get_time_to_next_mix () + AudioServer.get_output_latency ()
@@ -41,3 +58,4 @@ func play_song () -> void:
 
 func _process (delta: float) -> void:
 	background.modulate = PlayerData.bgcolor
+	win_wall.position.y = PlayerData.g1y - 540
