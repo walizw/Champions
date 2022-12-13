@@ -1,11 +1,30 @@
-* Geometry Dash
+* Geometry Dash: Champions
 
-A Geometry Dash fangame made in the Godot game engine. I want to replicate every
-detail from the original game, to make it as accurate as possible.
-
-This is not really that serious, it's mainly so I can learn godot in an actual
-project.
+A competitive Geometry Dash fangame made in the Godot game engine.
 
 ** Screenshots
 
-TODO: Screenshots p
+TODO: Screenshots :p
+
+** Running
+
+If you want to run and test Geometry Dash: Champions you are going to need
+Godot 3.5.x and Python 3.x
+
+First, create a python virtual environment:
+
+#+BEGIN_SRC bash
+cd server
+python -m venv venv
+. venv/bin/activate
+pip install -r requirements
+#+END_SRC
+
+And run the server:
+
+#+BEGIN_SRC bash
+cd backend
+python manage.py runserver
+#+END_SRC
+
+And now, open the project in Godot and run it.
