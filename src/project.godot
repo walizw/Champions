@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Popup",
+"class": "AcceptPopup",
+"language": "GDScript",
+"path": "res://scripts/UI/elements/AcceptPopup.gd"
+}, {
 "base": "Area2D",
 "class": "BaseTrigger",
 "language": "GDScript",
@@ -18,16 +23,6 @@ _global_script_classes=[ {
 "class": "GDButton",
 "language": "GDScript",
 "path": "res://scripts/UI/GDButton.gd"
-}, {
-"base": "Resource",
-"class": "LevelData",
-"language": "GDScript",
-"path": "res://scripts/Resources/LevelData.gd"
-}, {
-"base": "Control",
-"class": "MainLevelTile",
-"language": "GDScript",
-"path": "res://scripts/UI/menus/MainLevelTile.gd"
 }, {
 "base": "Line2D",
 "class": "Trail",
@@ -40,10 +35,9 @@ _global_script_classes=[ {
 "path": "res://scripts/Vehicles/Vehicle.gd"
 } ]
 _global_script_class_icons={
+"AcceptPopup": "",
 "BaseTrigger": "",
 "GDButton": "",
-"LevelData": "",
-"MainLevelTile": "",
 "Trail": "",
 "Vehicle": ""
 }
@@ -65,8 +59,8 @@ GameData="*res://scripts/AutoLoads/GameData.gd"
 window/size/width=1920
 window/size/height=1080
 window/size/resizable=false
-window/size/test_width=854
-window/size/test_height=480
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

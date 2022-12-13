@@ -1,6 +1,8 @@
 extends TextureButton
 class_name GDButton
 
+export var play_anim: = true
+
 var tween: SceneTreeTween
 var initial_scale: = Vector2.ZERO
 
@@ -9,6 +11,9 @@ func _ready () -> void:
 	initial_scale = rect_scale
 
 func mouse_down (object: Object) -> void:
+	if not play_anim:
+		return
+	
 	if tween:
 		tween.stop ()
 	
@@ -18,6 +23,9 @@ func mouse_down (object: Object) -> void:
 	tween.tween_property (object, "rect_scale", initial_scale * 1.2, 0.07)
 
 func _release_anim (object: Object) -> void:
+	if not play_anim:
+		return
+	
 	if tween:
 		tween.stop ()
 	

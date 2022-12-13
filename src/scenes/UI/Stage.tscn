@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/sprites/particles/fx_circle.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/components/button/Btn_OtherButton_SideButton01_Left.png" type="Texture" id=2]
+[ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui/icons/IconBack.png" type="Texture" id=4]
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/ui/backgrounds/Background3.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/components/frame/Frame_ItemFrame01.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/icons/IconWorldForest.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/icons/IconWorldBeach.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/icons/IconWorldShadow.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="Stage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="BackgroundParticles" type="CPUParticles2D" parent="BackgroundLayer"]
+position = Vector2( 960, 540 )
+amount = 25
+lifetime = 10.0
+preprocess = 10.0
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 960, 540 )
+spread = 180.0
+color = Color( 0.266667, 0.435294, 1, 0.219608 )
+
+[node name="TopRightContainer" type="HBoxContainer" parent="."]
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 120.0
+custom_constants/separation = 40
+
+[node name="SignalButton" parent="TopRightContainer" instance=ExtResource( 3 )]
+margin_right = 96.0
+rect_min_size = Vector2( 96, 96 )
+to_scene = "res://scenes/UI/Lobby.tscn"
+
+[node name="Texture" parent="TopRightContainer/SignalButton" index="0"]
+texture = ExtResource( 2 )
+patch_margin_left = 9
+patch_margin_right = 33
+
+[node name="Icon" type="TextureRect" parent="TopRightContainer/SignalButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -37.5
+margin_right = 16.0
+margin_bottom = 27.5
+texture = ExtResource( 4 )
+
+[node name="StageLabel" type="Label" parent="TopRightContainer"]
+margin_left = 136.0
+margin_top = 20.0
+margin_right = 252.0
+margin_bottom = 76.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Stage"
+
+[node name="WorldsContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -872.727
+margin_top = -214.0
+margin_right = 872.727
+margin_bottom = 214.0
+custom_constants/separation = 210
+
+[node name="RubrubWorld" parent="WorldsContainer" instance=ExtResource( 3 )]
+margin_right = 428.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 428, 428 )
+
+[node name="Texture" parent="WorldsContainer/RubrubWorld" index="0"]
+texture = ExtResource( 7 )
+
+[node name="WorldIcon" type="TextureRect" parent="WorldsContainer/RubrubWorld"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -299.95
+margin_top = -230.15
+margin_right = 299.95
+margin_bottom = 182.15
+texture = ExtResource( 8 )
+expand = true
+
+[node name="WorldLabel" type="Label" parent="WorldsContainer/RubrubWorld"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.5
+margin_top = 13.0
+margin_right = 220.5
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "RubRub Realm"
+align = 1
+valign = 1
+
+[node name="SandyFantasy" parent="WorldsContainer" instance=ExtResource( 3 )]
+margin_left = 638.0
+margin_right = 1066.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 428, 428 )
+
+[node name="Texture" parent="WorldsContainer/SandyFantasy" index="0"]
+texture = ExtResource( 7 )
+
+[node name="WorldIcon" type="TextureRect" parent="WorldsContainer/SandyFantasy"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -282.1
+margin_top = -275.15
+margin_right = 282.1
+margin_bottom = 179.15
+texture = ExtResource( 9 )
+expand = true
+
+[node name="WorldLabel" type="Label" parent="WorldsContainer/SandyFantasy"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.5
+margin_top = 13.0
+margin_right = 220.5
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "Escape the
+Chamber"
+align = 1
+valign = 1
+
+[node name="GloomyCity" parent="WorldsContainer" instance=ExtResource( 3 )]
+margin_left = 1276.0
+margin_right = 1704.0
+margin_bottom = 428.0
+rect_min_size = Vector2( 428, 428 )
+
+[node name="Texture" parent="WorldsContainer/GloomyCity" index="0"]
+texture = ExtResource( 7 )
+
+[node name="WorldIcon" type="TextureRect" parent="WorldsContainer/GloomyCity"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.2
+margin_top = -357.85
+margin_right = 256.2
+margin_bottom = 181.85
+texture = ExtResource( 10 )
+expand = true
+
+[node name="WorldLabel" type="Label" parent="WorldsContainer/GloomyCity"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -220.5
+margin_top = 13.0
+margin_right = 220.5
+margin_bottom = 96.0
+custom_fonts/font = SubResource( 2 )
+text = "Big Dash"
+align = 1
+valign = 1
+
+[editable path="TopRightContainer/SignalButton"]
+[editable path="WorldsContainer/RubrubWorld"]
+[editable path="WorldsContainer/SandyFantasy"]
+[editable path="WorldsContainer/GloomyCity"]

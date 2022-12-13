@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ui/icons/IconShop.Png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/components/frame/Frame_ItemFrame02.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="VertSignalButton" instance=ExtResource( 2 )]
+margin_bottom = 192.0
+rect_min_size = Vector2( 256, 192 )
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource( 4 )
+
+[node name="Icon" type="TextureRect" parent="." index="1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -65.5
+margin_top = -32.0
+margin_right = 65.5
+margin_bottom = 100.0
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="." index="2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -58.0
+margin_top = -83.0
+margin_right = 58.0
+margin_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "SHOP"
+align = 1
+valign = 1

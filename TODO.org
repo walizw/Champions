@@ -1,7 +1,5 @@
-* TODO Finish the level section menu
-  I could just make one button (instead of generating them all) and going
-  through all the levels in the array, and then emulating the animation?
-
+* TODO All the levels give three stars
+  But they can give up to 25 trophies based on its difficulty.
 * TODO Level completion (basically, you can complete a level)
 * TODO Death and respawning.
 * TODO Calculate the completion percentage of a game.
