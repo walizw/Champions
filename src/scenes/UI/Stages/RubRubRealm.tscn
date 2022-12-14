@@ -9,6 +9,7 @@ script = ExtResource( 3 )
 energy = 0
 coins = 100
 gems = 0
+stars = 1
 items = [  ]
 
 [sub_resource type="Resource" id=1]
@@ -16,7 +17,9 @@ script = ExtResource( 2 )
 id = 0
 name = "Stereo Madness"
 is_local = true
-to_scene = ""
+to_scene = "res://scenes/Levels/StereoMadness.tscn"
+energy_cost = 1
+from_scene = ""
 difficulty = 1
 reward = SubResource( 2 )
 
@@ -25,6 +28,7 @@ script = ExtResource( 3 )
 energy = 2
 coins = 120
 gems = 0
+stars = 2
 items = [  ]
 
 [sub_resource type="Resource" id=3]
@@ -32,7 +36,9 @@ script = ExtResource( 2 )
 id = 1
 name = "Back on Track"
 is_local = true
-to_scene = ""
+to_scene = "res://scenes/Levels/BackOnTrack.tscn"
+energy_cost = 2
+from_scene = ""
 difficulty = 1
 reward = SubResource( 4 )
 
@@ -44,4 +50,8 @@ levels = [ SubResource( 1 ), SubResource( 3 ) ]
 margin_right = 378.0
 text = "Stage Name"
 
+[node name="LevelsScroll" parent="." index="2"]
+scroll_vertical_enabled = false
+
 [editable path="TopRightContainer/BackButton"]
+[editable path="LevelPopup/ButtonsContainer/PlayButton"]

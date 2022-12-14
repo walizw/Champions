@@ -16,6 +16,8 @@ var player_name: = "Player"
 var player_id: = -1
 var is_superuser: = false
 
+var playing_level: LevelData
+
 # Player saved data
 var data: = {
 	"level": 0,

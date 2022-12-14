@@ -5,12 +5,34 @@ extends Node
 # Add a function to play another audio (such as a level song) and when
 # that audio is stopped (or finished) the loop will start playing again.
 
-var audio_stream: AudioStreamPlayer
+var song_play: AudioStreamPlayer
+var audio_play: AudioStreamPlayer
+
+var playing_song: Resource setget play_song
+var playing_audio: Resource setget play_audio
+
 var loop_song: = preload ("res://assets/songs/Floating in the Abyss - Menu Loop.wav")
 
 func _ready () -> void:
-	audio_stream = AudioStreamPlayer.new ()
-	add_child (audio_stream)
+	song_play = AudioStreamPlayer.new ()
+	audio_play = AudioStreamPlayer.new ()
 	
-	audio_stream.stream = loop_song
-	audio_stream.play ()
+	add_child (song_play)
+	add_child (audio_play)
+	
+	self.playing_song = loop_song
+
+func play_song (song: Resource) -> void:
+	playing_song = song
+	song_play.stream = song
+	song_play.play ()
+
+func play_audio (audio: Resource) -> void:
+	playing_audio = audio
+	audio_play.stream = audio
+	audio_play.play ()
+
+func stop_song () -> void:
+	song_play.stop ()
+	
+	self.playing_song = loop_song

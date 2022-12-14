@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,10 +7,31 @@
 [ext_resource path="res://assets/sprites/particles/fx_circle.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/icons/IconBack.png" type="Texture" id=6]
 [ext_resource path="res://scripts/UI/scenes/BaseStage.gd" type="Script" id=7]
+[ext_resource path="res://scripts/UI/DragScroll.gd" type="Script" id=8]
+[ext_resource path="res://assets/ui/components/popup/Popup_Frame3.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/components/frame/Frame_TableFrame_Line.png" type="Texture" id=10]
+[ext_resource path="res://assets/ui/components/button/Btn_MainButton_Yellow.Png" type="Texture" id=11]
+[ext_resource path="res://assets/ui/icons/IconEnergy.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 72
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 2 )
 
@@ -76,11 +97,139 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "RubRub Realm"
 
-[node name="LevelsContainer" type="HBoxContainer" parent="."]
+[node name="LevelsScroll" type="ScrollContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -876.5
+margin_top = -225.0
+margin_right = 956.5
+margin_bottom = 225.0
+script = ExtResource( 8 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelsScroll"]
+margin_right = 25.0
+margin_bottom = 450.0
+rect_min_size = Vector2( 0, 450 )
+alignment = 1
+
+[node name="LevelsContainer" type="HBoxContainer" parent="LevelsScroll/VBoxContainer"]
+margin_top = 223.0
+margin_right = 25.0
+margin_bottom = 227.0
+custom_constants/separation = 125
+
+[node name="Sep" type="HSeparator" parent="LevelsScroll/VBoxContainer/LevelsContainer"]
+modulate = Color( 0, 0, 0, 0 )
+margin_right = 25.0
+margin_bottom = 4.0
+rect_min_size = Vector2( 25, 0 )
+
+[node name="LevelPopup" type="Popup" parent="."]
+visible = true
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -713.0
+margin_top = 81.0
+margin_bottom = -81.0
+
+[node name="PopupTexture" type="NinePatchRect" parent="LevelPopup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 63.0
+texture = ExtResource( 9 )
+patch_margin_left = 19
+patch_margin_top = 20
+patch_margin_right = 21
+patch_margin_bottom = 36
+
+[node name="LevelLabel" type="Label" parent="LevelPopup"]
+margin_left = 40.0
+margin_top = 32.0
+margin_right = 389.0
+margin_bottom = 115.0
+custom_fonts/font = SubResource( 2 )
+text = "Level Name"
+valign = 1
+
+[node name="HeaderLine" type="TextureRect" parent="LevelPopup"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -376.5
+margin_top = -24.0
+margin_right = 377.5
+margin_bottom = 175.0
+texture = ExtResource( 10 )
+
+[node name="RewardsLabel" type="Label" parent="LevelPopup"]
+modulate = Color( 0.462745, 0.780392, 1, 1 )
+margin_left = 40.0
+margin_top = 160.0
+margin_right = 161.0
+margin_bottom = 198.0
+custom_fonts/font = SubResource( 3 )
+text = "Rewards"
+
+[node name="RewardsContainer" type="HBoxContainer" parent="LevelPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -314.5
+margin_top = -258.0
+margin_right = 314.5
+margin_bottom = 258.0
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="LevelPopup"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -328.0
+margin_top = -136.0
+margin_right = -40.0
+margin_bottom = -40.0
+
+[node name="PlayButton" parent="LevelPopup/ButtonsContainer" instance=ExtResource( 1 )]
+margin_right = 288.0
+rect_min_size = Vector2( 288, 96 )
+
+[node name="Texture" parent="LevelPopup/ButtonsContainer/PlayButton" index="0"]
+texture = ExtResource( 11 )
+
+[node name="Play" type="Label" parent="LevelPopup/ButtonsContainer/PlayButton"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 115.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 4 )
+text = "Play"
+
+[node name="EnergyCostLabel" type="Label" parent="LevelPopup/ButtonsContainer/PlayButton"]
+anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -145.0
-margin_bottom = 145.0
+margin_left = -97.0
+margin_top = -28.0
+margin_right = -72.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 4 )
+text = "2"
+
+[node name="EnergyIcon" type="TextureRect" parent="LevelPopup/ButtonsContainer/PlayButton"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -61.0
+margin_top = -31.0
+margin_right = -16.0
+margin_bottom = 31.0
+texture = ExtResource( 12 )
+expand = true
 
 [editable path="TopRightContainer/BackButton"]
+[editable path="LevelPopup/ButtonsContainer/PlayButton"]
