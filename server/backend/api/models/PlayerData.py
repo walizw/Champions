@@ -20,6 +20,15 @@ class PlayerData (models.Model):
     robot = models.DecimalField (max_digits=5, decimal_places=0, default=0)
     spider = models.DecimalField (max_digits=5, decimal_places=0, default=0)
 
+    stars = models.DecimalField (max_digits=6, decimal_places=0, default=0)
+    coins = models.DecimalField (max_digits=10, decimal_places=0, default=500)
+    gems = models.DecimalField (max_digits=10, decimal_places=0, default=250)
+    energy = models.DecimalField (max_digits=6, decimal_places=0, default=60)
+    max_energy = models.DecimalField (max_digits=6, decimal_places=0, default=60)
+    trophies = models.DecimalField (max_digits=10, decimal_places=0, default=0)
+
+    level_world = models.DecimalField (max_digits=3, decimal_places=0, default=0)
+
 @receiver (post_save, sender=User)
 def create_player_data (sender, instance, created, **kwargs):
     if created:

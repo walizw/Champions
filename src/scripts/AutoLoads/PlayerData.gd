@@ -11,6 +11,19 @@ var yscroll: = true # if false, the camera won't go up
 var g1y: = 5578
 var g2y: = 0 # top ground y
 
+# TODO Playing level
+# This variable should be used for completing levels, for example,
+# if playing_level is 1 (therefore, we're playing stereo madness) and
+# GameData.data.level_world is zero (or less than `playing_level'), when
+# colliding with a win_wall the value of GameData.data.level_world
+# should be incremented by one, as we've completed a new level.
+# There should also be another variable in `Level' such as is_local,
+# so the mentioned behaviour happens.
+# Should this be changed to a LevelData resource instead of simply
+# a number? so we can keep track of its difficulty and any other
+# data
+var playing_level: = 0 # the id of the level we're currently playing
+
 # some preloads
 var cube_vehicle: = preload ("res://prefabs/Vehicles/Cube.tscn")
 var ship_vehicle: = preload ("res://prefabs/Vehicles/Ship.tscn")

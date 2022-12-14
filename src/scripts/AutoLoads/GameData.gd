@@ -30,8 +30,15 @@ var data: = {
 	"col_a": Color.yellow,
 	"col_b": Color.aqua,
 	
+	"stars": 0,
+	"coins": 0,
+	"gems": 0,
+	"energy": 0,
+	"max_energy": 0, # TODO Energy increases along with levels
+	"trophies": 0,
+	
 	"level_world": 0 # the level we're at (as levels must be completed sequencially)
-}
+} setget set_data
 
 func _ready () -> void:
 	from_file ()
@@ -105,7 +112,22 @@ func data_from_dict (input: Dictionary) -> void:
 	data.robot = int (input.robot)
 	data.spider = int (input.spider)
 	
+	data.stars = int (input.stars)
+	data.coins = int (input.coins)
+	data.gems = int (input.gems)
+	data.energy = int (input.energy)
+	data.max_energy = int (input.max_energy)
+	data.trophies = int (input.trophies)
+	
+	data.level_world = int (input.level_world)
+	
 	emit_signal ("data_changed")
+
+func set_data (_data: Dictionary) -> void:
+	# TODO Update cloud save
+	# When `set_data' is called, it means there's been a change in the
+	# data dictionary, therefore, it should be updated in the cloud.
+	data = _data
 
 func create_accept_popup (title: String, content: String) -> void:
 	var dialog_resource: = preload ("res://prefabs/UI/elements/AcceptPopup.tscn")

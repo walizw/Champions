@@ -58,4 +58,11 @@ class DataSerializer (serializers.ModelSerializer):
                   "ufo",
                   "wave",
                   "robot",
-                  "spider"]
+                  "spider",
+                  "stars",
+                  "coins",
+                  "gems",
+                  "energy",
+                  "max_energy",
+                  "trophies",
+                  "level_world"]
