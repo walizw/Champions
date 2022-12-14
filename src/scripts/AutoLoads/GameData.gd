@@ -155,7 +155,8 @@ func sync_cloud (result: int, response_code: int, headers: PoolStringArray, body
 		GameData.create_accept_popup ("Error", "There's been an error syncing your data. Are you logged in?.")
 		return
 	
-	http_req.queue_free ()
+	if http_req:
+		http_req.queue_free ()
 
 func create_accept_popup (title: String, content: String) -> void:
 	var dialog_resource: = preload ("res://prefabs/UI/elements/AcceptPopup.tscn")

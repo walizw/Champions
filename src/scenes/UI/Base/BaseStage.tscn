@@ -180,7 +180,8 @@ anchor_bottom = 0.5
 margin_left = -314.5
 margin_top = -258.0
 margin_right = 314.5
-margin_bottom = 258.0
+margin_bottom = -258.0
+custom_constants/separation = 16
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="LevelPopup"]
 anchor_left = 1.0

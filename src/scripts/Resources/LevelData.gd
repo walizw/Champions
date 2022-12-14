@@ -19,4 +19,4 @@ export({"na": 0,
 		"insane": 5,
 		"demon": 6}) var difficulty: = 0
 
-export (Resource) var reward: Resource
+export (Array, Resource) var rewards: Array

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/ui/components/frame/Frame_ItemFrame01.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/icons/IconEnergy.png" type="Texture" id=3]
+[ext_resource path="res://scripts/UI/elements/BaseReward.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="BaseReward" type="NinePatchRect"]
+margin_right = 96.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 96, 128 )
+texture = ExtResource( 2 )
+patch_margin_left = 21
+patch_margin_top = 23
+patch_margin_right = 21
+patch_margin_bottom = 37
+script = ExtResource( 4 )
+
+[node name="Icon" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -27.5
+margin_top = -8.0
+margin_right = 27.5
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 27, 36 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Amount" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -29.0
+margin_top = -52.0
+margin_right = 29.0
+margin_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "1,000"
+align = 1
+valign = 1

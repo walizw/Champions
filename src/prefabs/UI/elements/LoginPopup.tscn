@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/UI/elements/LoginPopup.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LilitaOne.tres" type="DynamicFont" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://assets/ui/components/popup/Popup_Frame3.png" type="Texture" id=5]
 [ext_resource path="res://assets/themes/LineEditWithIcon.tres" type="StyleBox" id=6]
 [ext_resource path="res://prefabs/UI/elements/SignupPopup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/ui/icons/IconPerson.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/icons/IconPassword.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -77,6 +79,16 @@ custom_styles/normal = ExtResource( 6 )
 context_menu_enabled = false
 placeholder_text = "Username"
 
+[node name="Icon" type="TextureRect" parent="LabelsContainer/Username"]
+modulate = Color( 0, 0.52549, 1, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -31.5
+margin_right = 76.0
+margin_bottom = 31.5
+texture = ExtResource( 8 )
+
 [node name="Password" type="LineEdit" parent="LabelsContainer"]
 margin_top = 134.0
 margin_right = 542.0
@@ -89,6 +101,16 @@ custom_styles/normal = ExtResource( 6 )
 secret = true
 context_menu_enabled = false
 placeholder_text = "Password"
+
+[node name="Icon" type="TextureRect" parent="LabelsContainer/Password"]
+modulate = Color( 0, 0.52549, 1, 1 )
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 32.0
+margin_top = -34.0
+margin_right = 82.0
+margin_bottom = 34.0
+texture = ExtResource( 9 )
 
 [node name="LoginButton" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.5

@@ -17,8 +17,6 @@ export var song: String
 export var initial_speedboost: = 1
 export({cube=0, ship=1, ball=2, ufo=3, wave=4, robot=5, spider=6}) var initial_vehicle: = 0
 
-# TODO level completion
-# level_length will be used to spawn the win wall at the end of the level
 var level_length: = 0.0 # the total length (in pixels) of the level width
 
 func _ready () -> void:
@@ -38,7 +36,7 @@ func _ready () -> void:
 		if total_len > level_length:
 			level_length = total_len
 	
-	win_wall.position.x = level_length + (60 * 3)
+	win_wall.position.x = level_length + (60 * 5)
 	camera.limit_right = win_wall.position.x
 	
 	win_wall_area.connect ("body_entered", self, "win_level")
@@ -51,9 +49,21 @@ func win_level (body: Node) -> void:
 	
 	if GameData.playing_level.is_local:
 		if GameData.playing_level.id + 1 > GameData.data.level_world:
-			# TODO Give rewards
 			GameData.data.level_world = GameData.playing_level.id + 1
-			print ("TODO Give rewards")
+			
+			for i in GameData.playing_level.rewards:
+				var reward: LevelReward = i
+				
+				if reward.type == 0:
+					GameData.data.energy += reward.amount
+				elif reward.type == 1:
+					GameData.data.coins += reward.amount
+				elif reward.type == 2:
+					GameData.data.gems += reward.amount
+				elif reward.type == 3:
+					GameData.data.exp += reward.amount
+				elif reward.type == 4:
+					GameData.data.stars += reward.amount
 	else:
 		# TODO Win online levels
 		# How will I handle wining online levels? :O

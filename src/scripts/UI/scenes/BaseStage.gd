@@ -21,11 +21,6 @@ func _ready () -> void:
 	
 	generate_ui ()
 
-# TODO Generate stage UI
-# For each level create a child that is basically a button
-# with a label (its id + 1) and it must also have a popup
-# that shows the info (its rewards, its name) and a button
-# to play. This popup is shown when clicked the button.
 func generate_ui () -> void:
 	for i in levels:
 		var level: LevelData = i
@@ -41,13 +36,41 @@ func generate_ui () -> void:
 
 func display_level_popup (level: LevelData) -> void:
 	selected_level = level
+	clean_rewards ()
 	
 	level_popup_name.text = level.name
 	level_popup_play.to_scene = level.to_scene
 	level_popup_play.connect ("callback", self, "play_level")
 	level_popup_energy.text = str (level.energy_cost)
 	
+	create_rewards ()
+	
 	level_popup.popup ()
+
+func clean_rewards () -> void:
+	var rewards_container: = $LevelPopup/RewardsContainer
+	
+	for i in rewards_container.get_children ():
+		i.queue_free ()
+
+func create_rewards () -> void:
+	var base_reward: = load ("res://prefabs/UI/elements/BaseReward.tscn")
+	
+	for i in selected_level.rewards:
+		var reward: = i as LevelReward
+		var ins = base_reward.instance ()
+		
+		if reward.type == 1:
+			ins.icon = load ("res://assets/ui/icons/IconCoin.png")
+		elif reward.type == 2:
+			ins.icon = load ("res://assets/ui/icons/IconGem.png")
+		elif reward.type == 3:
+			ins.icon = load ("res://assets/ui/icons/IconEnergyYellow.png")
+		elif reward.type == 4:
+			ins.icon = load ("res://assets/ui/icons/IconStar.png")
+		
+		ins.amount = reward.amount
+		level_popup_rewards_cnt.add_child (ins)
 
 func play_level () -> void:
 	GameData.data.energy -= selected_level.energy_cost
