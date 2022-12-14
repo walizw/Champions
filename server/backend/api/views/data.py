@@ -20,4 +20,9 @@ class DataUpdateAPIView (generics.UpdateAPIView):
                 code=401
             )
 
+        # TODO Validate the data when cloud saving
+        # There should be a way to check if data is valid or not, for example,
+        # checking that a single save does not give more than 10 stars (as
+        # that's the maximum), 25 trophies, 10 gems or 500 coins. Something
+        # like that.
         serializer.save ()
