@@ -18,11 +18,11 @@ var trail: = false setget set_trail
 var maxvsp: = 5000
 
 func _ready () -> void:
-	spr_a.modulate = PlayerData.color_a
-	spr_b.modulate = PlayerData.color_b
-	floor_particles.modulate = PlayerData.color_b
+	spr_a.modulate = GameData.data.color_a
+	spr_b.modulate = GameData.data.color_b
+	floor_particles.modulate = GameData.data.color_b
 	
-	_trail.default_color = PlayerData.color_b
+	_trail.default_color = GameData.data.color_b
 	_trail.default_color.a = 0.25
 	_trail.is_emitting = false
 

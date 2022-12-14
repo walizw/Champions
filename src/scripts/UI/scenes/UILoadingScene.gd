@@ -8,6 +8,11 @@ func _ready () -> void:
 		login_popup.popup_centered ()
 		dark_rect.visible = true
 
+func _process (delta: float) -> void:
+	if Input.is_action_pressed ("jump") and GameData.jwt:
+		var lobby_scene: = preload ("res://scenes/UI/Lobby.tscn")
+		get_tree ().change_scene_to (lobby_scene)
+
 # TODO Press anywhere on the screen to continue
 # When the user presses anywhere on the screen (and there is a JWT) go to the
 # lobby.

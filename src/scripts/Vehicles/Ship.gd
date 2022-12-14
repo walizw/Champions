@@ -9,14 +9,14 @@ onready var rocket_particles: = $RocketParticles
 func _ready () -> void:
 	maxvsp = 800
 	
-	cube_a.modulate = PlayerData.color_a
-	cube_b.modulate = PlayerData.color_b
+	cube_a.modulate = GameData.data.color_a
+	cube_b.modulate = GameData.data.color_b
 	
-	cube_a.frame = PlayerData.cube
-	cube_b.frame = PlayerData.cube
+	cube_a.frame = GameData.data.cube
+	cube_b.frame = GameData.data.cube
 	
-	spr_a.frame = PlayerData.ship
-	spr_b.frame = PlayerData.ship
+	spr_a.frame = GameData.data.ship
+	spr_b.frame = GameData.data.ship
 	
 	scale = Vector2 (0.8, 0.8)
 	self.trail = true

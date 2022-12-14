@@ -1,16 +1,5 @@
 extends Node
 
-var cube:   = 0 # the frame of the cube
-var ship:   = 0 # the frame of the ship
-var ball:   = 0 # the frame of the ball
-var ufo:    = 0 # the frame of the ufo
-var wave:   = 0 # the frame of the wave
-var robot:  = 0 # the frame of the robot
-var spider: = 0 # the frame of the spider
-
-var color_a: = Color.yellow
-var color_b: = Color.aqua
-
 var speed_boost: = 1 # this is used for speeds, as it multiplies the base speed
 
 var gravdir: = 1 # if -1, the player will be upside down

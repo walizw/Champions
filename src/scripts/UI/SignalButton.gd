@@ -10,9 +10,6 @@ func _on_button_down() -> void:
 func _on_button_up() -> void:
 	_release_anim (self)
 	
-	if not tween and play_anim:
-		return
-	
 	if tween:
 		yield (tween, "finished")
 	

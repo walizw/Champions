@@ -1,8 +1,8 @@
 extends Vehicle
 
 func _ready () -> void:
-	spr_a.frame = PlayerData.cube
-	spr_b.frame = PlayerData.cube
+	spr_a.frame = GameData.data.cube
+	spr_b.frame = GameData.data.cube
 
 func _physics_process (delta: float) -> void:
 	rotate_cube ()
