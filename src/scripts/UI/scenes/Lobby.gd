@@ -10,7 +10,7 @@ func _ready () -> void:
 	GameData.connect ("data_changed", self, "update_ui")
 
 func update_ui () -> void:
-	player_name.text = GameData.data.player_name
+	player_name.text = GameData.player_name
 	player_level.text = str (GameData.data.level)
 	player_exp.text = "%d/%d" % [GameData.data.exp, GameData.data.player_next_experience]
 	

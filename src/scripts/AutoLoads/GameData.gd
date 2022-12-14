@@ -12,9 +12,12 @@ var refresh: = "" # the refresh token
 
 var http_req: HTTPRequest
 
+var player_name: = "Player"
+var player_id: = -1
+var is_superuser: = false
+
 # Player saved data
 var data: = {
-	"player_name": "Player",
 	"level": 0,
 	"exp": 0,
 	"player_next_experience": 0, # exp for next level
@@ -54,8 +57,7 @@ func from_file () -> void:
 	self.jwt = data.result.jwt
 	refresh = data.result.refresh
 	
-	# TODO Refrest the access token at jwt load
-	
+	# TODO Refresh the access token at jwt load
 	save_game.close ()
 
 func to_file () -> void:
@@ -90,7 +92,10 @@ func get_user_data (result: int, response_code: int, headers: PoolStringArray, b
 	var response: = JSON.parse (body.get_string_from_utf8 ())
 	var response_data = response.result.data
 	
-	data.player_name = response.result.username
+	player_name = response.result.username
+	player_id = response.result.id
+	is_superuser = response.result.is_superuser
+	
 	data_from_dict (response_data)
 	
 	http_req.queue_free ()

@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/components/button/Btn_OtherButton_SideButton01_Left.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/backgrounds/Background3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/particles/fx_circle.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/icons/IconBack.png" type="Texture" id=6]
+[ext_resource path="res://scripts/UI/scenes/BaseStage.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Stage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="BackgroundParticles" type="CPUParticles2D" parent="BackgroundLayer"]
+position = Vector2( 960, 540 )
+amount = 25
+lifetime = 10.0
+preprocess = 10.0
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 960, 540 )
+spread = 180.0
+color = Color( 0.266667, 0.435294, 1, 0.219608 )
+
+[node name="TopRightContainer" type="HBoxContainer" parent="."]
+margin_top = 24.0
+margin_right = 216.0
+margin_bottom = 120.0
+custom_constants/separation = 40
+
+[node name="BackButton" parent="TopRightContainer" instance=ExtResource( 1 )]
+margin_right = 96.0
+rect_min_size = Vector2( 96, 96 )
+to_scene = "res://scenes/UI/StageSelect.tscn"
+
+[node name="Texture" parent="TopRightContainer/BackButton" index="0"]
+texture = ExtResource( 3 )
+patch_margin_left = 9
+patch_margin_right = 33
+
+[node name="Icon" type="TextureRect" parent="TopRightContainer/BackButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -37.5
+margin_right = 16.0
+margin_bottom = 27.5
+texture = ExtResource( 6 )
+
+[node name="StageLabel" type="Label" parent="TopRightContainer"]
+margin_left = 136.0
+margin_top = 20.0
+margin_right = 430.0
+margin_bottom = 76.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "RubRub Realm"
+
+[node name="LevelsContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -145.0
+margin_bottom = 145.0
+
+[editable path="TopRightContainer/BackButton"]

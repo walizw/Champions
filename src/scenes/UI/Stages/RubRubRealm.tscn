@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/UI/Base/BaseStage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Resources/LevelReward.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+energy = 0
+coins = 100
+gems = 0
+items = [  ]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+id = 0
+name = "Stereo Madness"
+is_local = true
+to_scene = ""
+difficulty = 1
+reward = SubResource( 2 )
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+energy = 2
+coins = 120
+gems = 0
+items = [  ]
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+id = 1
+name = "Back on Track"
+is_local = true
+to_scene = ""
+difficulty = 1
+reward = SubResource( 4 )
+
+[node name="RubRubRealm" instance=ExtResource( 1 )]
+stage_name = "RubRub Realm"
+levels = [ SubResource( 1 ), SubResource( 3 ) ]
+
+[node name="StageLabel" parent="TopRightContainer" index="1"]
+margin_right = 378.0
+text = "Stage Name"
+
+[editable path="TopRightContainer/BackButton"]

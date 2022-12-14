@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/UI/GDButton.gd"
 }, {
+"base": "Resource",
+"class": "LevelData",
+"language": "GDScript",
+"path": "res://scripts/Resources/LevelData.gd"
+}, {
+"base": "Resource",
+"class": "LevelReward",
+"language": "GDScript",
+"path": "res://scripts/Resources/LevelReward.gd"
+}, {
 "base": "Line2D",
 "class": "Trail",
 "language": "GDScript",
@@ -38,6 +48,8 @@ _global_script_class_icons={
 "AcceptPopup": "",
 "BaseTrigger": "",
 "GDButton": "",
+"LevelData": "",
+"LevelReward": "",
 "Trail": "",
 "Vehicle": ""
 }
