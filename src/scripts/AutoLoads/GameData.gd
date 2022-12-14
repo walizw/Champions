@@ -136,7 +136,11 @@ func set_data (_data: Dictionary) -> void:
 	data = _data
 	
 	if data.exp >= data.player_next_experience:
-		
+		# TODO: Show a level up screen
+		# This should also fill (and increase) the energy,
+		# get the remaining exp (for example, if my exp is 150
+		# and i needed 50 exp to levelup, i'd still have 50 exp)
+		# and give some rewards for each level.
 		pass
 	
 	http_req = HTTPRequest.new ()
