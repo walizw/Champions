@@ -11,8 +11,8 @@ func _ready () -> void:
 
 func update_ui () -> void:
 	player_name.text = GameData.data.player_name
-	player_level.text = str (GameData.data.player_level)
-	player_exp.text = "%d/%d" % [GameData.data.player_experience, GameData.data.player_next_experience]
+	player_level.text = str (GameData.data.level)
+	player_exp.text = "%d/%d" % [GameData.data.exp, GameData.data.player_next_experience]
 	
 	player_exp_bar.max_value = GameData.data.player_next_experience
-	player_exp_bar.value = GameData.data.player_experience
+	player_exp_bar.value = GameData.data.exp

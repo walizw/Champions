@@ -9,8 +9,8 @@ onready var rocket_particles: = $RocketParticles
 func _ready () -> void:
 	maxvsp = 800
 	
-	cube_a.modulate = GameData.data.color_a
-	cube_b.modulate = GameData.data.color_b
+	cube_a.modulate = GameData.data.col_a
+	cube_b.modulate = GameData.data.col_b
 	
 	cube_a.frame = GameData.data.cube
 	cube_b.frame = GameData.data.cube

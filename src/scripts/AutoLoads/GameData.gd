@@ -15,8 +15,8 @@ var http_req: HTTPRequest
 # Player saved data
 var data: = {
 	"player_name": "Player",
-	"player_level": 0,
-	"player_experience": 0,
+	"level": 0,
+	"exp": 0,
 	"player_next_experience": 0, # exp for next level
 	
 	"cube": 0,
@@ -27,10 +27,10 @@ var data: = {
 	"robot": 0,
 	"spider": 0,
 	
-	"color_a": Color.yellow,
-	"color_b": Color.aqua,
+	"col_a": Color.yellow,
+	"col_b": Color.aqua,
 	
-	"level": 0 # the level we're at (as levels must be completed sequencially)
+	"level_world": 0 # the level we're at (as levels must be completed sequencially)
 }
 
 func _ready () -> void:
@@ -89,13 +89,13 @@ func get_user_data (result: int, response_code: int, headers: PoolStringArray, b
 	http_req.queue_free ()
 
 func data_from_dict (input: Dictionary) -> void:
-	data.player_level = int (input.level)
-	data.player_experience = int (input.exp)
+	data.level = int (input.level)
+	data.exp = int (input.exp)
 	
-	data.player_next_experience = (data.player_level + 1) * 100
+	data.player_next_experience = (data.level + 1) * 100
 	
-	data.color_a = Color (input.col_a)
-	data.color_b = Color (input.col_b)
+	data.col_a = Color (input.col_a)
+	data.col_b = Color (input.col_b)
 	
 	data.cube = int (input.cube)
 	data.ship = int (input.ship)
