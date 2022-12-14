@@ -133,10 +133,11 @@ func data_from_dict (input: Dictionary) -> void:
 	emit_signal ("data_changed")
 
 func set_data (_data: Dictionary) -> void:
-	# TODO Update cloud save
-	# When `set_data' is called, it means there's been a change in the
-	# data dictionary, therefore, it should be updated in the cloud.
 	data = _data
+	
+	if data.exp >= data.player_next_experience:
+		
+		pass
 	
 	http_req = HTTPRequest.new ()
 	add_child (http_req)
