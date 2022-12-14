@@ -81,31 +81,31 @@ func get_user_data (result: int, response_code: int, headers: PoolStringArray, b
 		return
 	
 	var response: = JSON.parse (body.get_string_from_utf8 ())
-	var data = response.result.data
+	var response_data = response.result.data
 	
 	data.player_name = response.result.username
-	data_from_dict (data)
+	data_from_dict (response_data)
 	
 	http_req.queue_free ()
 
-func data_from_dict (data: Dictionary) -> void:
-	emit_signal ("data_changed")
-	
-	data.player_level = int (data.level)
-	data.player_experience = int (data.exp)
+func data_from_dict (input: Dictionary) -> void:
+	data.player_level = int (input.level)
+	data.player_experience = int (input.exp)
 	
 	data.player_next_experience = (data.player_level + 1) * 100
 	
-	data.color_a = Color (data.col_a)
-	data.color_b = Color (data.col_b)
+	data.color_a = Color (input.col_a)
+	data.color_b = Color (input.col_b)
 	
-	data.cube = int (data.cube)
-	data.ship = int (data.ship)
-	data.ball = int (data.ball)
-	data.ufo = int (data.ufo)
-	data.wave = int (data.wave)
-	data.robot = int (data.robot)
-	data.spider = int (data.spider)
+	data.cube = int (input.cube)
+	data.ship = int (input.ship)
+	data.ball = int (input.ball)
+	data.ufo = int (input.ufo)
+	data.wave = int (input.wave)
+	data.robot = int (input.robot)
+	data.spider = int (input.spider)
+	
+	emit_signal ("data_changed")
 
 func create_accept_popup (title: String, content: String) -> void:
 	var dialog_resource: = preload ("res://prefabs/UI/elements/AcceptPopup.tscn")
