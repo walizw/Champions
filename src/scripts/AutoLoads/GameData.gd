@@ -108,8 +108,10 @@ func data_from_dict (input: Dictionary) -> void:
 	
 	data.player_next_experience = (data.level + 1) * 100
 	
-	data.col_a = Color (input.col_a)
-	data.col_b = Color (input.col_b)
+	var col_a = input.col_a.split (",")
+	var col_b = input.col_b.split (",")
+	data.col_a = Color (col_a [0], col_a [1], col_a [2], col_a [3])
+	data.col_b = Color (col_b [0], col_b [1], col_b [2], col_b [3])
 	
 	data.cube = int (input.cube)
 	data.ship = int (input.ship)
@@ -135,6 +137,25 @@ func set_data (_data: Dictionary) -> void:
 	# When `set_data' is called, it means there's been a change in the
 	# data dictionary, therefore, it should be updated in the cloud.
 	data = _data
+	
+	http_req = HTTPRequest.new ()
+	add_child (http_req)
+	http_req.connect ("request_completed", self, "sync_cloud")
+	
+	var endpoint: = api_url + "user/%d/data/" % player_id
+	var headers: = ["Authorization: Bearer %s" % jwt, "Content-Type: application/json"]
+	http_req.request (endpoint, headers, use_ssl, HTTPClient.METHOD_PUT, JSON.print (data))
+
+func sync_cloud (result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+	if result != HTTPRequest.RESULT_SUCCESS:
+		create_accept_popup ("Error", "There's been an error syncing your local data with our servers.")
+		return
+	
+	if response_code == 401:
+		GameData.create_accept_popup ("Error", "There's been an error syncing your data. Are you logged in?.")
+		return
+	
+	http_req.queue_free ()
 
 func create_accept_popup (title: String, content: String) -> void:
 	var dialog_resource: = preload ("res://prefabs/UI/elements/AcceptPopup.tscn")

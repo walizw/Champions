@@ -9,8 +9,8 @@ class PlayerData (models.Model):
     level = models.DecimalField (max_digits=10, decimal_places=0, default=0)
     exp = models.DecimalField (max_digits=15, decimal_places=0, default=0)
 
-    col_a = models.CharField (max_length=8, default="ffffff00")
-    col_b = models.CharField (max_length=8, default="ff00ffff")
+    col_a = models.CharField (max_length=16, default="1,1,0,1")
+    col_b = models.CharField (max_length=16, default="0,1,1,1")
 
     cube = models.DecimalField (max_digits=5, decimal_places=0, default=0)
     ship = models.DecimalField (max_digits=5, decimal_places=0, default=0)

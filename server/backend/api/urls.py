@@ -7,4 +7,5 @@ urlpatterns = [
     path ("users/create/", views.RegisterAPIView.as_view ()),
     path ("user/", views.LoggedUserView.as_view ()),
     path ("user/<int:pk>/", views.UserAPIView.as_view ()),
+    path ("user/<int:pk>/data/", views.DataUpdateAPIView.as_view ())
 ]
