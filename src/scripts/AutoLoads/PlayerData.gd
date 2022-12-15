@@ -56,19 +56,19 @@ func calc_ground_y (pos: Vector2, sep: int) -> void:
 	g1y = ((ty * 60) + 128) + 4850
 	g2y = ((ty2 * 60) - 128) + 4850
 
-# TODO Should all the vehicles be instantiated at _ready?
-# I am not sure if this might affect the performance, should there be variables
-# containing an instance of all the vehicles, so we would just need to add them as
-# child to the tree?
+func create_vehicle (vehicle: String) -> Vehicle:
+	# Check for any vehicle other than the cube
+	if vehicle == "Ship":
+		return ship_vehicle.instance () as Vehicle
+	
+	# Default to cube
+	return cube_vehicle.instance () as Vehicle
+
 func vehicle_transform (from: Vehicle, to: String) -> void:
 	if from.name == to:
 		return
 	
-	var ins: Vehicle
-	if to == "Cube":
-		ins = cube_vehicle.instance ()
-	elif to == "Ship":
-		ins = ship_vehicle.instance ()
+	var ins: Vehicle = create_vehicle (to)
 	ins.global_position = from.global_position
-	get_tree ().get_root ().add_child (ins)
+	get_tree ().current_scene.add_child (ins)
 	from.queue_free ()

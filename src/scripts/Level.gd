@@ -15,7 +15,8 @@ export var song: String
 # Make the initial_speedbost and initial_vehicle work. There are still some fields
 # that are missing, such as the song audio file, the background and ground texture.
 export var initial_speedboost: = 1
-export({cube=0, ship=1, ball=2, ufo=3, wave=4, robot=5, spider=6}) var initial_vehicle: = 0
+export(String, "Cube", "Ship", "Ball", "Ufo", "Wave", "Robot", "Spider") var initial_vehicle
+export var initial_vehicle_pos: = Vector2 (-60, 5420)
 
 var level_length: = 0.0 # the total length (in pixels) of the level width
 
@@ -24,9 +25,12 @@ func _ready () -> void:
 		Jukebox.playing_song = load (song)
 	
 	PlayerData.reset_vars ()
-	
 	PlayerData.bgcolor = initial_bgcolor
 	PlayerData.gcolor = initial_gcolor
+	
+	var vehicle: = PlayerData.create_vehicle (initial_vehicle)
+	vehicle.global_position = initial_vehicle_pos
+	add_child (vehicle)
 	
 	# iterate through all the tiles, so we get the farthest tile
 	var tiles: = [$SolidTiles, $TrapTiles, $SpecialTiles]
