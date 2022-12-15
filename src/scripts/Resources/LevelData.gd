@@ -19,4 +19,7 @@ export({"na": 0,
 		"insane": 5,
 		"demon": 6}) var difficulty: = 0
 
+# if true, the user already completed this level
+export var completed: = false
+
 export (Array, Resource) var rewards: Array

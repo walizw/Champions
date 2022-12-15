@@ -54,7 +54,7 @@ func win_level (body: Node) -> void:
 		return
 	
 	if GameData.playing_level.is_local:
-		if GameData.playing_level.id + 1 > GameData.data.level_world:
+		if not GameData.playing_level.completed:
 			GameData.data.level_world = GameData.playing_level.id + 1
 			
 			for i in GameData.playing_level.rewards:
@@ -74,6 +74,8 @@ func win_level (body: Node) -> void:
 		# TODO Win online levels
 		# How will I handle wining online levels? :O
 		pass
+	
+	GameData.playing_level.completed = true
 	
 	# TODO Display a win screen
 	# Instead of directly going to the previous scene, show

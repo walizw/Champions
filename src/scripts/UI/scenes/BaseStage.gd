@@ -28,8 +28,8 @@ func generate_ui () -> void:
 		var tile_instance: = level_tile.instance ()
 		tile_instance.level = level
 		
-		if GameData.data.level_world < level.id:
-			tile_instance.disabled = true
+		tile_instance.disabled = GameData.data.level_world < level.id
+		level.completed = GameData.data.level_world > level.id
 		
 		levels_container.add_child (tile_instance)
 		tile_instance.connect ("callback", self, "display_level_popup")

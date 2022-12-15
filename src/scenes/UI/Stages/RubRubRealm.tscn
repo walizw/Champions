@@ -28,6 +28,7 @@ to_scene = "res://scenes/Levels/StereoMadness.tscn"
 energy_cost = 1
 from_scene = ""
 difficulty = 1
+completed = false
 rewards = [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ]
 
 [sub_resource type="Resource" id=3]
@@ -39,6 +40,7 @@ to_scene = "res://scenes/Levels/BackOnTrack.tscn"
 energy_cost = 2
 from_scene = ""
 difficulty = 1
+completed = false
 rewards = [  ]
 
 [node name="RubRubRealm" instance=ExtResource( 1 )]
