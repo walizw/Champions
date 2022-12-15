@@ -19,7 +19,7 @@ var is_superuser: = false
 var playing_level: LevelData
 
 # useful when needed to take into account the previous scene
-var prev_scene: String
+var prev_scene: String setget , get_prev_scene
 
 # Player saved data
 var data: = {
@@ -51,16 +51,22 @@ var data: = {
 func _ready () -> void:
 	from_file ()
 
+func get_prev_scene () -> String:
+	# prev_scene can be used only once
+	var to_ret: = prev_scene
+	prev_scene = ""
+	return to_ret
+
 func from_file () -> void:
 	var save_game = File.new ()
 	if not save_game.file_exists ("user://savegame.save"):
 		return
 	
 	save_game.open ("user://savegame.save", File.READ)
-	var data: = JSON.parse (save_game.get_as_text ())
+	var jwt_data: = JSON.parse (save_game.get_as_text ())
 	
-	self.jwt = data.result.jwt
-	refresh = data.result.refresh
+	self.jwt = jwt_data.result.jwt
+	refresh = jwt_data.result.refresh
 	
 	# TODO Refresh the access token at jwt load
 	save_game.close ()
@@ -77,15 +83,24 @@ func to_file () -> void:
 func set_jwt (_jwt: String) -> void:
 	jwt = _jwt
 	
+	get_user_data ()
+
+func get_user_data () -> void:
+	if http_req:
+		# wait until current request is finished
+		yield (http_req, "request_completed")
+		# wait a little
+		yield (get_tree ().create_timer (0.1), "timeout")
+	
 	http_req = HTTPRequest.new ()
 	add_child (http_req)
-	http_req.connect ("request_completed", self, "get_user_data")
+	http_req.connect ("request_completed", self, "_get_user_data")
 	
 	var endpoint: = api_url + "user/"
-	var headers: = ["Authorization: Bearer %s" % _jwt]
+	var headers: = ["Authorization: Bearer %s" % jwt]
 	http_req.request (endpoint, headers, use_ssl, HTTPClient.METHOD_GET)
 
-func get_user_data (result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+func _get_user_data (result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		create_accept_popup ("Error", "There's been an error getting your cloud saves.")
 		return
@@ -103,7 +118,9 @@ func get_user_data (result: int, response_code: int, headers: PoolStringArray, b
 	
 	data_from_dict (response_data)
 	
-	http_req.queue_free ()
+	if http_req:
+		http_req.queue_free ()
+		http_req = null
 
 func data_from_dict (input: Dictionary) -> void:
 	data.level = int (input.level)
@@ -138,23 +155,36 @@ func data_from_dict (input: Dictionary) -> void:
 func set_data (_data: Dictionary) -> void:
 	data = _data
 	
-	if data.exp >= data.player_next_experience:
-		# TODO: Show a level up screen
-		# This should also fill (and increase) the energy,
-		# get the remaining exp (for example, if my exp is 150
-		# and i needed 50 exp to levelup, i'd still have 50 exp)
-		# and give some rewards for each level.
-		pass
+	sync_cloud ()
 	
+	if data.exp >= data.player_next_experience:
+		if not prev_scene:
+			prev_scene = get_tree ().current_scene.filename
+		
+		data.exp = data.player_next_experience % data.exp
+		data.level += 1
+		
+		data.max_energy += 2
+		data.coins += data.level * 10
+		data.gems += data.level * 2
+		
+		get_tree ().change_scene_to (preload ("res://scenes/UI/Other/LevelUp.tscn"))
+
+func sync_cloud () -> void:
+	if http_req:
+		# wait until current request is finished
+		yield (http_req, "request_completed")
+		# wait a little
+		yield (get_tree ().create_timer (0.1), "timeout")
 	http_req = HTTPRequest.new ()
 	add_child (http_req)
-	http_req.connect ("request_completed", self, "sync_cloud")
+	http_req.connect ("request_completed", self, "_sync_cloud")
 	
 	var endpoint: = api_url + "user/%d/data/" % player_id
 	var headers: = ["Authorization: Bearer %s" % jwt, "Content-Type: application/json"]
 	http_req.request (endpoint, headers, use_ssl, HTTPClient.METHOD_PUT, JSON.print (data))
 
-func sync_cloud (result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
+func _sync_cloud (result: int, response_code: int, headers: PoolStringArray, body: PoolByteArray) -> void:
 	if result != HTTPRequest.RESULT_SUCCESS:
 		create_accept_popup ("Error", "There's been an error syncing your local data with our servers.")
 		return
@@ -165,6 +195,7 @@ func sync_cloud (result: int, response_code: int, headers: PoolStringArray, body
 	
 	if http_req:
 		http_req.queue_free ()
+		http_req = null
 
 func create_accept_popup (title: String, content: String) -> void:
 	var dialog_resource: = preload ("res://prefabs/UI/elements/AcceptPopup.tscn")

@@ -1,0 +1,200 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/ui/backgrounds/Background3.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/components/frame/Frame_LevelFrame.png" type="Texture" id=3]
+[ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/ui/components/button/Btn_MainButton_Green.Png" type="Texture" id=5]
+[ext_resource path="res://prefabs/UI/elements/BaseReward.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/ui/icons/IconGem.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/icons/IconCoin.png" type="Texture" id=8]
+[ext_resource path="res://scripts/UI/scenes/other/LevelUp.gd" type="Script" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 130
+outline_size = 10
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
+font_data = ExtResource( 1 )
+
+[node name="LevelUp" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="Background" type="TextureRect" parent="BackgroundLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="BackgroundLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -555.0
+margin_right = 1280.0
+margin_bottom = -16.0
+rect_rotation = 13.5859
+color = Color( 0.0313726, 0.176471, 0.32549, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="BackgroundLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1280.0
+margin_top = -555.0
+margin_bottom = -16.0
+rect_rotation = -13.6
+rect_pivot_offset = Vector2( 1280, 0 )
+color = Color( 0.0313726, 0.176471, 0.32549, 1 )
+
+[node name="TopLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -503.5
+margin_top = 64.0
+margin_right = 503.5
+margin_bottom = 147.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 1 )
+text = "You have reached the Next Level!"
+align = 1
+valign = 1
+
+[node name="LevelFrame" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -360.5
+margin_right = 182.0
+margin_bottom = 88.5
+texture = ExtResource( 3 )
+
+[node name="LevelLabel" type="Label" parent="LevelFrame"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.5
+margin_top = -98.5
+margin_right = 109.5
+margin_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 2 )
+text = "999"
+align = 1
+valign = 1
+
+[node name="LevelUpLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -210.0
+margin_top = 110.5
+margin_right = 210.0
+margin_bottom = 225.5
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+text = "LEVEL UP!"
+align = 1
+valign = 1
+
+[node name="ContinueButton" parent="." instance=ExtResource( 4 )]
+margin_left = 1460.0
+margin_top = 896.0
+margin_right = 1810.0
+margin_bottom = 1024.0
+
+[node name="Texture" parent="ContinueButton" index="0"]
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="ContinueButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -28.5
+margin_top = -7.0
+margin_right = 28.5
+margin_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 4 )
+text = "Continue"
+
+[node name="RewardsContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -176.0
+margin_top = -284.0
+margin_right = 176.0
+margin_bottom = -82.0
+custom_constants/separation = 18
+
+[node name="Title" type="HBoxContainer" parent="RewardsContainer"]
+margin_right = 352.0
+margin_bottom = 56.0
+alignment = 1
+
+[node name="RewardsLabel" type="Label" parent="RewardsContainer/Title"]
+modulate = Color( 0.462745, 0.780392, 1, 1 )
+margin_left = 86.0
+margin_right = 266.0
+margin_bottom = 56.0
+grow_horizontal = 2
+custom_fonts/font = SubResource( 5 )
+text = "Rewards"
+
+[node name="Rewards" type="HBoxContainer" parent="RewardsContainer"]
+margin_top = 74.0
+margin_right = 352.0
+margin_bottom = 202.0
+custom_constants/separation = 32
+
+[node name="EnergyRewards" parent="RewardsContainer/Rewards" instance=ExtResource( 6 )]
+amount = "MAX +2"
+
+[node name="CoinsRewards" parent="RewardsContainer/Rewards" instance=ExtResource( 6 )]
+margin_left = 128.0
+margin_right = 224.0
+icon = ExtResource( 8 )
+
+[node name="GemsRewards" parent="RewardsContainer/Rewards" instance=ExtResource( 6 )]
+margin_left = 256.0
+margin_right = 352.0
+icon = ExtResource( 7 )
+
+[editable path="ContinueButton"]

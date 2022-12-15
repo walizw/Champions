@@ -18,6 +18,7 @@ onready var level_popup_energy: = $LevelPopup/ButtonsContainer/PlayButton/Energy
 
 func _ready () -> void:
 	stage_label.text = stage_name
+	level_popup.connect ("popup_hide", self, "clean_rewards")
 	
 	generate_ui ()
 
@@ -76,7 +77,7 @@ func create_rewards () -> void:
 		elif reward.type == 4:
 			ins.icon = load ("res://assets/ui/icons/IconStar.png")
 		
-		ins.amount = reward.amount
+		ins.amount = str (reward.amount)
 		ins.taken = GameData.data.level_world > selected_level.id
 		level_popup_rewards_cnt.add_child (ins)
 
