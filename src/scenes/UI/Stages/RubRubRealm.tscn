@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/UI/Base/BaseStage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=2]
@@ -26,10 +26,24 @@ name = "Stereo Madness"
 is_local = true
 to_scene = "res://scenes/Levels/StereoMadness.tscn"
 energy_cost = 1
-from_scene = ""
 difficulty = 1
 completed = false
 rewards = [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 3 )
+type = 1
+amount = 150
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 3 )
+type = 3
+amount = 50
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 3 )
+type = 4
+amount = 2
 
 [sub_resource type="Resource" id=3]
 script = ExtResource( 2 )
@@ -38,10 +52,9 @@ name = "Back on Track"
 is_local = true
 to_scene = "res://scenes/Levels/BackOnTrack.tscn"
 energy_cost = 2
-from_scene = ""
 difficulty = 1
 completed = false
-rewards = [  ]
+rewards = [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ]
 
 [node name="RubRubRealm" instance=ExtResource( 1 )]
 stage_name = "RubRub Realm"

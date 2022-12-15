@@ -23,12 +23,16 @@ func _ready () -> void:
 
 func generate_ui () -> void:
 	for i in levels:
+		if not i:
+			continue
+		
 		var level: LevelData = i
 		
 		var tile_instance: = level_tile.instance ()
 		tile_instance.level = level
 		
 		tile_instance.disabled = GameData.data.level_world < level.id
+		tile_instance.is_active = GameData.data.level_world == level.id
 		level.completed = GameData.data.level_world > level.id
 		
 		levels_container.add_child (tile_instance)
@@ -57,6 +61,9 @@ func create_rewards () -> void:
 	var base_reward: = load ("res://prefabs/UI/elements/BaseReward.tscn")
 	
 	for i in selected_level.rewards:
+		if not i:
+			continue
+		
 		var reward: = i as LevelReward
 		var ins = base_reward.instance ()
 		
@@ -76,4 +83,4 @@ func create_rewards () -> void:
 func play_level () -> void:
 	GameData.data.energy -= selected_level.energy_cost
 	GameData.playing_level = selected_level
-	GameData.playing_level.from_scene = get_tree ().current_scene.filename
+	GameData.prev_scene = get_tree ().current_scene.filename

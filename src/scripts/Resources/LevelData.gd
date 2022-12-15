@@ -7,10 +7,6 @@ export var is_local: = false
 export (String, FILE, "*.tscn") var to_scene
 export var energy_cost: = 2
 
-# from_scene is used to store the path of the scene
-# we got to this level, i.e. a stage or an online scene
-export var from_scene: = ""
-
 export({"na": 0,
 		"easy": 1,
 		"normal": 2,

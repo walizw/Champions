@@ -18,6 +18,9 @@ var is_superuser: = false
 
 var playing_level: LevelData
 
+# useful when needed to take into account the previous scene
+var prev_scene: String
+
 # Player saved data
 var data: = {
 	"level": 0,

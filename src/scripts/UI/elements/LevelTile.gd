@@ -8,7 +8,10 @@ var level: LevelData
 
 onready var tex: = $Texture
 onready var tex_disabled: = $TextureDisabled
+
 onready var tex_selected: = $TextureSelected
+onready var tex_glow: = $Glow
+
 onready var tex_extra: = $TextureExtra
 
 onready var id_label: = $NumberLabel
@@ -20,6 +23,7 @@ func _ready () -> void:
 		tex_extra.visible = true
 	elif is_active:
 		tex_selected.visible = true
+		tex_glow.visible = true
 	else:
 		tex.visible = true
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/ui/components/frame/Frame_StageFrame.png" type="Texture" id=5]
 [ext_resource path="res://assets/ui/components/frame/Frame_StageFrame_Disabled.png" type="Texture" id=6]
 [ext_resource path="res://assets/ui/components/frame/Frame_StageFrame_Selected.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/components/frame/Frame_StageFrame_Glow.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 102
@@ -48,7 +49,19 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 3 )
 
-[node name="NumberLabel" type="Label" parent="." index="4"]
+[node name="Glow" type="TextureRect" parent="." index="4"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -202.5
+margin_top = -211.0
+margin_right = 202.5
+margin_bottom = 211.0
+texture = ExtResource( 8 )
+
+[node name="NumberLabel" type="Label" parent="." index="5"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
