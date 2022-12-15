@@ -42,7 +42,7 @@ var data: = {
 	"coins": 0,
 	"gems": 0,
 	"energy": 0,
-	"max_energy": 0, # TODO Energy increases along with levels
+	"max_energy": 0,
 	"trophies": 0,
 	
 	"level_world": 0 # the level we're at (as levels must be completed sequencially)

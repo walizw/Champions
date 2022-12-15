@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://assets/ui/components/frame/Frame_LevelFrame.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/LilitaOne.tres" type="DynamicFont" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://prefabs/UI/elements/ResourceBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/ui/icons/IconCoin.png" type="Texture" id=29]
 [ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=30]
+[ext_resource path="res://assets/ui/icons/IconEnergyYellow.png" type="Texture" id=31]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.0141026, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.50641, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -553,7 +554,7 @@ margin_right = 415.0
 
 [node name="Icon" parent="TopRightContainer/EnergyBar" index="1"]
 margin_bottom = 33.6
-texture = ExtResource( 29 )
+texture = ExtResource( 31 )
 
 [node name="Texture" parent="TopRightContainer/EnergyBar/SignalButton" index="0"]
 texture = ExtResource( 17 )
