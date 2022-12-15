@@ -35,6 +35,9 @@ func reset_vars ():
 	
 	g1y = 0
 	g2y = 5578
+	yscroll = true
+	
+	reset_g2y ()
 
 func reset_g2y () -> void:
 	g1y = 5578

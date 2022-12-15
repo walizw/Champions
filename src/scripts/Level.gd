@@ -23,6 +23,8 @@ func _ready () -> void:
 	if song:
 		Jukebox.playing_song = load (song)
 	
+	PlayerData.reset_vars ()
+	
 	PlayerData.bgcolor = initial_bgcolor
 	PlayerData.gcolor = initial_gcolor
 	

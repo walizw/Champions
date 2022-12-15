@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://assets/ui/components/frame/Frame_CardFrame01_Icon.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/LilitaOne.tres" type="DynamicFont" id=2]
@@ -27,9 +27,18 @@
 [ext_resource path="res://assets/ui/icons/IconSettings.png" type="Texture" id=25]
 [ext_resource path="res://scripts/UI/scenes/Lobby.gd" type="Script" id=26]
 [ext_resource path="res://assets/sprites/particles/fx_special_particle_blue.png" type="Texture" id=27]
+[ext_resource path="res://prefabs/UI/elements/ResourceBar.tscn" type="PackedScene" id=28]
+[ext_resource path="res://assets/ui/icons/IconCoin.png" type="Texture" id=29]
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=30]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.0141026, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.50641, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 30 )
 
 [node name="Lobby" type="Control"]
 anchor_right = 1.0
@@ -66,25 +75,25 @@ scale_amount_curve = SubResource( 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_left = 40.0
-margin_top = -524.0
-margin_right = 680.0
-margin_bottom = -36.0
+margin_top = -540.0
+margin_right = 484.0
+margin_bottom = -52.0
+rect_min_size = Vector2( 444, 0 )
 custom_constants/separation = 32
 
 [node name="Level" type="Control" parent="TopLeftContainer"]
-margin_right = 640.0
+margin_right = 444.0
 margin_bottom = 128.0
-rect_min_size = Vector2( 640, 128 )
+rect_min_size = Vector2( 444, 128 )
 
 [node name="ExpBar" type="ProgressBar" parent="TopLeftContainer/Level"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -272.0
-margin_top = -2.0
-margin_right = 272.0
-margin_bottom = 46.0
+margin_left = -198.0
+margin_right = 246.0
+margin_bottom = 48.0
 max_value = 400.0
 value = 183.0
 percent_visible = false
@@ -139,19 +148,20 @@ text = "Ryuen"
 
 [node name="Missions" type="Control" parent="TopLeftContainer"]
 margin_top = 160.0
-margin_right = 640.0
+margin_right = 444.0
 margin_bottom = 308.0
-rect_min_size = Vector2( 460, 148 )
+rect_min_size = Vector2( 444, 148 )
 
 [node name="MissionsButton" parent="TopLeftContainer/Missions" instance=ExtResource( 3 )]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -167.5
-margin_top = -41.0
-margin_right = 135.5
-margin_bottom = 73.0
+margin_left = -151.5
+margin_top = -35.0
+margin_right = 151.5
+margin_bottom = 79.0
+rect_min_size = Vector2( 303, 114 )
 play_anim = false
 
 [node name="Texture" parent="TopLeftContainer/Missions/MissionsButton" index="0"]
@@ -165,10 +175,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -159.5
-margin_top = -44.0
-margin_right = 91.5
-margin_bottom = -9.0
+margin_left = -67.0
+margin_top = -37.0
+margin_right = 134.0
+margin_bottom = -2.0
 percent_visible = false
 
 [node name="MissionsIcon" type="TextureRect" parent="TopLeftContainer/Missions"]
@@ -177,10 +187,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -231.0
-margin_top = -54.0
-margin_right = -176.0
-margin_bottom = 8.0
+margin_left = -103.0
+margin_top = -46.0
+margin_right = -48.0
+margin_bottom = 16.0
 texture = ExtResource( 6 )
 
 [node name="ChestIcon" type="TextureRect" parent="TopLeftContainer/Missions"]
@@ -197,10 +207,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -77.5
-margin_top = -23.0
-margin_right = 55.5
-margin_bottom = 15.0
+margin_left = -26.5
+margin_top = -19.0
+margin_right = 106.5
+margin_bottom = 19.0
 grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
 text = "0  /  100"
@@ -208,9 +218,9 @@ align = 1
 
 [node name="SeasonPass" type="Control" parent="TopLeftContainer"]
 margin_top = 340.0
-margin_right = 640.0
+margin_right = 444.0
 margin_bottom = 488.0
-rect_min_size = Vector2( 460, 148 )
+rect_min_size = Vector2( 444, 148 )
 
 [node name="SeasonPassButton" parent="TopLeftContainer/SeasonPass" instance=ExtResource( 3 )]
 anchor_right = 1.0
@@ -238,31 +248,28 @@ text = "SEASON 1"
 [node name="SeasonProgress" type="Label" parent="TopLeftContainer/SeasonPass"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -150.0
-margin_top = 16.0
-margin_right = -58.0
-margin_bottom = 54.0
-custom_fonts/font = ExtResource( 2 )
+margin_left = -53.0
+margin_top = 21.0
+margin_right = 27.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 2 )
 text = "0  /  10"
 
 [node name="SeasonProgressBar" type="Control" parent="TopLeftContainer/SeasonPass"]
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 18.0
-margin_top = -87.0
-margin_right = -24.0
-margin_bottom = -16.0
+anchor_bottom = 0.5
+margin_bottom = 71.0
 
 [node name="ProgressBar" type="ProgressBar" parent="TopLeftContainer/SeasonPass/SeasonProgressBar"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -264.0
-margin_top = -21.5
-margin_right = 142.0
-margin_bottom = 9.5
+margin_left = -171.5
+margin_top = -15.5
+margin_right = 75.5
+margin_bottom = 15.5
 max_value = 10.0
 percent_visible = false
 
@@ -270,9 +277,10 @@ percent_visible = false
 modulate = Color( 1, 1, 0.909804, 1 )
 anchor_top = 0.5
 anchor_bottom = 0.5
-margin_top = -24.5
-margin_right = 40.0
-margin_bottom = 24.5
+margin_left = 13.0
+margin_top = -21.5
+margin_right = 53.0
+margin_bottom = 27.5
 rect_scale = Vector2( 1.25, 1.25 )
 rect_pivot_offset = Vector2( 20, 24 )
 texture = ExtResource( 8 )
@@ -298,10 +306,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -139.864
-margin_top = -92.328
-margin_right = 5.0
-margin_bottom = 26.328
+margin_left = -144.864
+margin_top = -99.328
+margin_bottom = 19.328
 texture = ExtResource( 9 )
 expand = true
 
@@ -501,22 +508,16 @@ texture = ExtResource( 23 )
 [node name="Label" parent="CenterRightContainer/Col3/NoticeButton" index="2"]
 text = "News"
 
-[node name="TopRightContainer" type="HBoxContainer" parent="."]
+[node name="SettingsButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -632.0
-margin_top = 16.0
-margin_right = 8.0
-margin_bottom = 144.0
-alignment = 2
-
-[node name="SettingsButton" parent="TopRightContainer" instance=ExtResource( 3 )]
-margin_left = 512.0
-margin_right = 640.0
-margin_bottom = 128.0
+margin_left = -128.0
+margin_top = 18.0
+margin_right = 0.0
+margin_bottom = 146.0
 rect_min_size = Vector2( 128, 128 )
 
-[node name="Texture" parent="TopRightContainer/SettingsButton" index="0"]
+[node name="Texture" parent="SettingsButton" index="0"]
 rect_scale = Vector2( -1, 1 )
 rect_pivot_offset = Vector2( 64, 64 )
 texture = ExtResource( 24 )
@@ -524,7 +525,7 @@ patch_margin_left = 4
 patch_margin_top = 25
 patch_margin_right = 39
 
-[node name="Icon" type="TextureRect" parent="TopRightContainer/SettingsButton"]
+[node name="Icon" type="TextureRect" parent="SettingsButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -535,6 +536,42 @@ margin_right = 45.5
 margin_bottom = 31.5
 texture = ExtResource( 25 )
 
+[node name="TopRightContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1169.0
+margin_top = 42.0
+margin_right = -184.0
+margin_bottom = 116.0
+custom_constants/separation = 35
+alignment = 2
+
+[node name="EnergyBar" parent="TopRightContainer" instance=ExtResource( 28 )]
+margin_left = 165.0
+margin_right = 415.0
+
+[node name="Icon" parent="TopRightContainer/EnergyBar" index="1"]
+margin_bottom = 33.6
+texture = ExtResource( 29 )
+
+[node name="Texture" parent="TopRightContainer/EnergyBar/SignalButton" index="0"]
+texture = ExtResource( 17 )
+
+[node name="CoinBar" parent="TopRightContainer" instance=ExtResource( 28 )]
+margin_left = 450.0
+margin_right = 700.0
+
+[node name="Icon" parent="TopRightContainer/CoinBar" index="1"]
+margin_bottom = 33.6
+texture = ExtResource( 29 )
+
+[node name="Texture" parent="TopRightContainer/CoinBar/SignalButton" index="0"]
+texture = ExtResource( 17 )
+
+[node name="GemBar" parent="TopRightContainer" instance=ExtResource( 28 )]
+margin_left = 735.0
+margin_right = 985.0
+
 [editable path="TopLeftContainer/Missions/MissionsButton"]
 [editable path="TopLeftContainer/SeasonPass/SeasonPassButton"]
 [editable path="BottomLeftContainer/InventoryButton"]
@@ -544,4 +581,10 @@ texture = ExtResource( 25 )
 [editable path="CenterRightContainer/Col2/QuestsButton"]
 [editable path="CenterRightContainer/Col2/FriendsButton"]
 [editable path="CenterRightContainer/Col3/NoticeButton"]
-[editable path="TopRightContainer/SettingsButton"]
+[editable path="SettingsButton"]
+[editable path="TopRightContainer/EnergyBar"]
+[editable path="TopRightContainer/EnergyBar/SignalButton"]
+[editable path="TopRightContainer/CoinBar"]
+[editable path="TopRightContainer/CoinBar/SignalButton"]
+[editable path="TopRightContainer/GemBar"]
+[editable path="TopRightContainer/GemBar/SignalButton"]

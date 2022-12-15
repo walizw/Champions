@@ -70,6 +70,7 @@ func create_rewards () -> void:
 			ins.icon = load ("res://assets/ui/icons/IconStar.png")
 		
 		ins.amount = reward.amount
+		ins.taken = GameData.data.level_world > selected_level.id
 		level_popup_rewards_cnt.add_child (ins)
 
 func play_level () -> void:
