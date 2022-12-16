@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="StyleBoxLine" id=1]
+color = Color( 0, 0, 0, 0.490196 )
+thickness = 10
+
+[node name="Control" type="Control"]
+margin_right = 300.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 300, 10 )
+
+[node name="LevelTileSeparator" type="HSeparator" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -5.0
+margin_right = 100.0
+margin_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 250, 0 )
+custom_constants/separation = 10
+custom_styles/separator = SubResource( 1 )

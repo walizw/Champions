@@ -4,6 +4,7 @@ export var stage_name: = ""
 export (Array, Resource) var levels: Array
 
 var level_tile: = preload ("res://prefabs/UI/elements/LevelTile.tscn")
+var level_tile_sep: = preload ("res://prefabs/UI/elements/LevelTileSeparator.tscn")
 
 var selected_level: LevelData
 
@@ -23,11 +24,11 @@ func _ready () -> void:
 	generate_ui ()
 
 func generate_ui () -> void:
-	for i in levels:
-		if not i:
+	for i in levels.size ():
+		if not levels [i]:
 			continue
 		
-		var level: LevelData = i
+		var level: LevelData = levels [i]
 		
 		var tile_instance: = level_tile.instance ()
 		tile_instance.level = level
@@ -38,6 +39,10 @@ func generate_ui () -> void:
 		
 		levels_container.add_child (tile_instance)
 		tile_instance.connect ("callback", self, "display_level_popup")
+		
+		if i < levels.size () - 1:
+			var sep_ins: = level_tile_sep.instance ()
+			levels_container.add_child (sep_ins)
 
 func display_level_popup (level: LevelData) -> void:
 	selected_level = level

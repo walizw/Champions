@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scenes/UI/Base/BaseStage.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/Resources/LevelData.gd" type="Script" id=2]
@@ -56,9 +56,35 @@ difficulty = 1
 completed = false
 rewards = [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ]
 
+[sub_resource type="Resource" id=11]
+script = ExtResource( 3 )
+type = 1
+amount = 150
+
+[sub_resource type="Resource" id=12]
+script = ExtResource( 3 )
+type = 3
+amount = 100
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 3 )
+type = 4
+amount = 3
+
+[sub_resource type="Resource" id=10]
+script = ExtResource( 2 )
+id = 2
+name = "Polargeist"
+is_local = true
+to_scene = "res://scenes/Levels/Polargeist.tscn"
+energy_cost = 2
+difficulty = 2
+completed = false
+rewards = [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ]
+
 [node name="RubRubRealm" instance=ExtResource( 1 )]
 stage_name = "RubRub Realm"
-levels = [ SubResource( 1 ), SubResource( 3 ) ]
+levels = [ SubResource( 1 ), SubResource( 3 ), SubResource( 10 ) ]
 
 [node name="StageLabel" parent="TopRightContainer" index="1"]
 margin_right = 378.0
@@ -66,6 +92,9 @@ text = "Stage Name"
 
 [node name="LevelsScroll" parent="." index="2"]
 scroll_vertical_enabled = false
+
+[node name="LevelsContainer" parent="LevelsScroll/VBoxContainer" index="0"]
+custom_constants/separation = -1
 
 [editable path="TopRightContainer/BackButton"]
 [editable path="LevelPopup/ButtonsContainer/PlayButton"]
