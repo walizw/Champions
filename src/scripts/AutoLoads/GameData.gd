@@ -172,7 +172,7 @@ func set_data (_data: Dictionary) -> void:
 		data.gems += data.level * 2
 		
 		var lvl_instance: = level_up_popup.instance ()
-		get_tree ().current_scene.add_child (lvl_instance)
+		get_tree ().root.add_child (lvl_instance)
 		lvl_instance.popup_centered_minsize ()
 
 func sync_cloud () -> void:
