@@ -1,4 +1,5 @@
 extends Node
+class_name Level
 
 onready var background: = $ParallaxBackground/ParallaxLayer/Background
 
@@ -21,16 +22,8 @@ export var initial_vehicle_pos: = Vector2 (-60, 5420)
 var level_length: = 0.0 # the total length (in pixels) of the level width
 
 func _ready () -> void:
-	if song:
-		Jukebox.playing_song = load (song)
-	
-	PlayerData.reset_vars ()
-	PlayerData.bgcolor = initial_bgcolor
-	PlayerData.gcolor = initial_gcolor
-	
-	var vehicle: = PlayerData.create_vehicle (initial_vehicle)
-	vehicle.global_position = initial_vehicle_pos
-	add_child (vehicle)
+	reset_vars ()
+	spawn_vehicle ()
 	
 	# iterate through all the tiles, so we get the farthest tile
 	var tiles: = [$SolidTiles, $TrapTiles, $SpecialTiles]
@@ -85,3 +78,23 @@ func win_level (body: Node) -> void:
 func _process (delta: float) -> void:
 	background.modulate = PlayerData.bgcolor
 	win_wall.position.y = PlayerData.g1y - 540
+
+func reset_vars () -> void:
+	if song:
+		Jukebox.playing_song = load (song)
+	
+	PlayerData.reset_vars ()
+	PlayerData.bgcolor = initial_bgcolor
+	PlayerData.gcolor = initial_gcolor
+
+func spawn_vehicle () -> void:
+	var vehicle: = PlayerData.create_vehicle (initial_vehicle)
+	vehicle.global_position = initial_vehicle_pos
+	vehicle.level = self
+	add_child (vehicle)
+
+func respawn () -> void:
+	Jukebox.pause_song ()
+	yield (get_tree ().create_timer (1), "timeout")
+	reset_vars ()
+	spawn_vehicle ()

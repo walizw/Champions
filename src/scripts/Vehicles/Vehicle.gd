@@ -15,6 +15,9 @@ onready var _trail: = $Trail
 var angle: = 0.0
 var trail: = false setget set_trail
 
+# The level this vehicle is from
+var level
+
 var maxvsp: = 5000
 
 func _ready () -> void:
@@ -50,7 +53,8 @@ func move_vehicle (delta: float) -> void:
 func die () -> void:
 	# TODO Die
 	# Finish dying, death effect and respawning
-	get_tree ().paused = true
+	level.respawn ()
+	queue_free ()
 
 func set_trail (trail_val: bool) -> void:
 	trail = trail_val

@@ -23,16 +23,25 @@ func _ready () -> void:
 	self.playing_song = loop_song
 
 func play_song (song: Resource) -> void:
+	if song_play.stream_paused:
+		song_play.stream_paused = false
+	
 	playing_song = song
 	song_play.stream = song
 	song_play.play ()
 
-func play_audio (audio: Resource) -> void:
-	playing_audio = audio
-	audio_play.stream = audio
-	audio_play.play ()
+func pause_song () -> void:
+	song_play.stream_paused = true
+
+func resume_song () -> void:
+	song_play.stream_paused = false
 
 func stop_song () -> void:
 	song_play.stop ()
 	
 	self.playing_song = loop_song
+
+func play_audio (audio: Resource) -> void:
+	playing_audio = audio
+	audio_play.stream = audio
+	audio_play.play ()

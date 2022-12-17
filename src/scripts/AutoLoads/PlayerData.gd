@@ -57,5 +57,6 @@ func vehicle_transform (from: Vehicle, to: String) -> void:
 	
 	var ins: Vehicle = create_vehicle (to)
 	ins.global_position = from.global_position
+	ins.level = from.level
 	get_tree ().current_scene.add_child (ins)
 	from.queue_free ()
