@@ -7,6 +7,8 @@ onready var win_wall: = $WinWall
 onready var win_wall_area: = $WinWall/Area
 onready var camera: = $Camera
 
+onready var pause_menu: = $PauseMenu
+
 export var initial_bgcolor: = Color.blue
 export var initial_gcolor: = Color.blue
 
@@ -14,7 +16,7 @@ export var song: String
 
 # TODO Finish level
 # Make the initial_speedbost and initial_vehicle work. There are still some fields
-# that are missing, such as the song audio file, the background and ground texture.
+# that are missing such as the background and ground texture.
 export var initial_speedboost: = 1
 export(String, "Cube", "Ship", "Ball", "Ufo", "Wave", "Robot", "Spider") var initial_vehicle
 export var initial_vehicle_pos: = Vector2 (-60, 5420)
@@ -39,6 +41,10 @@ func _ready () -> void:
 	camera.limit_right = win_wall.position.x
 	
 	win_wall_area.connect ("body_entered", self, "win_level")
+
+func _process (delta: float) -> void:
+	background.modulate = PlayerData.bgcolor
+	win_wall.position.y = PlayerData.g1y - 540
 
 func win_level (body: Node) -> void:
 	Jukebox.stop_song ()
@@ -74,10 +80,6 @@ func win_level (body: Node) -> void:
 	# Instead of directly going to the previous scene, show
 	# some kind of display screen, or something like that
 	get_tree ().change_scene (GameData.prev_scene)
-
-func _process (delta: float) -> void:
-	background.modulate = PlayerData.bgcolor
-	win_wall.position.y = PlayerData.g1y - 540
 
 func reset_vars () -> void:
 	if song:

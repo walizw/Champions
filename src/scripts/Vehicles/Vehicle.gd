@@ -28,6 +28,8 @@ func _ready () -> void:
 	_trail.default_color = GameData.data.col_b
 	_trail.default_color.a = 0.25
 	_trail.is_emitting = false
+	
+	z_index = -1
 
 func _physics_process (delta: float) -> void:
 	if is_on_wall ():# or is_on_ceiling():

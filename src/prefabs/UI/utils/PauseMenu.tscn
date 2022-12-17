@@ -1,0 +1,200 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://prefabs/UI/BaseSignalButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/ui/components/button/Btn_OtherButton_Hexagon01_Blue.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/icons/PictoIconPlay.Png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/icons/PictoiconRefresh.Png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/icons/PictoiconQuit.Png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/components/button/Btn_OtherButton_Hexagon01_Red.png" type="Texture" id=7]
+[ext_resource path="res://scripts/UI/utils/PauseMenu.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 120
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 8 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="PauseLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -172.5
+margin_top = 238.0
+margin_right = 172.5
+margin_bottom = 376.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "PAUSE"
+align = 1
+
+[node name="LevelName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -148.0
+margin_right = 249.0
+margin_bottom = -92.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_colors/font_color = Color( 0.988235, 1, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "LEVEL NAME GOES HERE"
+align = 1
+
+[node name="ButtonsBackground" type="ColorRect" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -44.0
+margin_bottom = 284.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 35
+alignment = 1
+
+[node name="ContinueButton" parent="ButtonsContainer" instance=ExtResource( 2 )]
+margin_left = 677.0
+margin_right = 842.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 165, 199 )
+
+[node name="Texture" parent="ButtonsContainer/ContinueButton" index="0"]
+texture = ExtResource( 3 )
+
+[node name="Icon" type="TextureRect" parent="ButtonsContainer/ContinueButton/Texture" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -79.0
+margin_right = 73.0
+margin_bottom = 49.0
+texture = ExtResource( 4 )
+
+[node name="ButtonLabel" type="Label" parent="ButtonsContainer/ContinueButton"]
+modulate = Color( 0.52549, 0.780392, 1, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -5.0
+margin_right = 92.0
+margin_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+text = "Continue"
+align = 1
+valign = 1
+
+[node name="RestartButton" parent="ButtonsContainer" instance=ExtResource( 2 )]
+margin_left = 877.0
+margin_right = 1042.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 165, 199 )
+
+[node name="Texture" parent="ButtonsContainer/RestartButton" index="0"]
+texture = ExtResource( 3 )
+
+[node name="Icon" type="TextureRect" parent="ButtonsContainer/RestartButton/Texture" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -64.0
+margin_top = -73.0
+margin_right = 64.0
+margin_bottom = 55.0
+texture = ExtResource( 5 )
+
+[node name="ButtonLabel" type="Label" parent="ButtonsContainer/RestartButton"]
+modulate = Color( 0.52549, 0.780392, 1, 1 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -5.0
+margin_right = 92.0
+margin_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+text = "Restart"
+align = 1
+valign = 1
+
+[node name="GiveUpButton" parent="ButtonsContainer" instance=ExtResource( 2 )]
+margin_left = 1077.0
+margin_right = 1242.0
+margin_bottom = 199.0
+rect_min_size = Vector2( 165, 199 )
+
+[node name="Texture" parent="ButtonsContainer/GiveUpButton" index="0"]
+texture = ExtResource( 7 )
+
+[node name="Icon" type="TextureRect" parent="ButtonsContainer/GiveUpButton/Texture" index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -55.0
+margin_top = -73.0
+margin_right = 73.0
+margin_bottom = 55.0
+texture = ExtResource( 6 )
+
+[node name="ButtonLabel" type="Label" parent="ButtonsContainer/GiveUpButton"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -92.0
+margin_top = -5.0
+margin_right = 92.0
+margin_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+custom_fonts/font = SubResource( 3 )
+text = "Give Up"
+align = 1
+valign = 1
+
+[editable path="ButtonsContainer/ContinueButton"]
+[editable path="ButtonsContainer/RestartButton"]
+[editable path="ButtonsContainer/GiveUpButton"]

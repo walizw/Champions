@@ -4,9 +4,6 @@ func _ready () -> void:
 	zoom = Vector2 (0.65, 0.65)
 
 func _process (delta: float) -> void:
-	update_camera ()
-
-func update_camera ():
 	var vehicles = get_tree ().get_nodes_in_group ("vehicle")
 	
 	if vehicles.size () == 0:
