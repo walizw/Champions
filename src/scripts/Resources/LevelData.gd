@@ -6,6 +6,7 @@ export var name: = "Stereo Madness"
 export var is_local: = false
 export (String, FILE, "*.tscn") var to_scene
 export var energy_cost: = 2
+export var is_extra: = false
 
 export({"na": 0,
 		"easy": 1,

@@ -35,6 +35,7 @@ func generate_ui () -> void:
 		
 		tile_instance.disabled = GameData.data.level_world < level.id
 		tile_instance.is_active = GameData.data.level_world == level.id
+		level.is_extra = level.is_extra
 		level.completed = GameData.data.level_world > level.id
 		
 		levels_container.add_child (tile_instance)

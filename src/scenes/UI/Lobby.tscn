@@ -30,7 +30,7 @@
 [ext_resource path="res://prefabs/UI/elements/ResourceBar.tscn" type="PackedScene" id=28]
 [ext_resource path="res://assets/ui/icons/IconCoin.png" type="Texture" id=29]
 [ext_resource path="res://assets/fonts/LilitaOne-Regular.ttf" type="DynamicFontData" id=30]
-[ext_resource path="res://assets/ui/icons/IconEnergyYellow.png" type="Texture" id=31]
+[ext_resource path="res://assets/ui/icons/IconEnergy.png" type="Texture" id=31]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0.0141026, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.50641, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
@@ -553,7 +553,9 @@ margin_left = 165.0
 margin_right = 415.0
 
 [node name="Icon" parent="TopRightContainer/EnergyBar" index="1"]
-margin_bottom = 33.6
+margin_left = -38.0
+margin_top = -41.0
+margin_bottom = 34.0
 texture = ExtResource( 31 )
 
 [node name="Texture" parent="TopRightContainer/EnergyBar/SignalButton" index="0"]

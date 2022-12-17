@@ -1,4 +1,4 @@
-extends Control
+extends Popup
 
 onready var level_label: = $LevelFrame/LevelLabel
 
@@ -13,4 +13,4 @@ func _ready () -> void:
 	coins_rewards.amount = str (GameData.data.level * 10)
 	gems_rewards.amount = str (GameData.data.level * 2)
 	
-	continue_button.to_scene = GameData.prev_scene
+	continue_button.connect ("callback", self, "queue_free")

@@ -21,6 +21,9 @@ var playing_level: LevelData
 # useful when needed to take into account the previous scene
 var prev_scene: String setget , get_prev_scene
 
+# some preloads
+var level_up_popup: = preload ("res://prefabs/UI/other/LevelUp.tscn")
+
 # Player saved data
 var data: = {
 	"level": 0,
@@ -168,7 +171,9 @@ func set_data (_data: Dictionary) -> void:
 		data.coins += data.level * 10
 		data.gems += data.level * 2
 		
-		get_tree ().change_scene_to (preload ("res://scenes/UI/Other/LevelUp.tscn"))
+		var lvl_instance: = level_up_popup.instance ()
+		get_tree ().current_scene.add_child (lvl_instance)
+		lvl_instance.popup_centered_minsize ()
 
 func sync_cloud () -> void:
 	if http_req:

@@ -80,7 +80,7 @@ func win_level (body: Node) -> void:
 	# TODO Display a win screen
 	# Instead of directly going to the previous scene, show
 	# some kind of display screen, or something like that
-	# get_tree ().change_scene (GameData.prev_scene)
+	get_tree ().change_scene (GameData.prev_scene)
 
 func _process (delta: float) -> void:
 	background.modulate = PlayerData.bgcolor
