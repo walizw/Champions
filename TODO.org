@@ -30,3 +30,23 @@
 * TODO Port the game to Godot 4
   I will work on this when Godot 4 is officially released, as it crashes
   a lot in my computer.
+* TODO Practise mode
+
+How would this work? there can be a new type of object called "practise_gem" for
+example, and it will store certain variables such as:
+
+- spdboost
+- gravdir
+- bgcolor
+- gcolor
+- the jukebox song position
+- the vehicle we're in
+- velocity
+- probably something else I can't think of rn
+
+and there will be an array containing those gems, they will be created
+automatically each number of seconds, or when the player presses "z" and deleted
+when the player presses "x". 
+
+When dying, if we are in practise mode, get the data from the last gem added to
+the array, and respawn at its position.
