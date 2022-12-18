@@ -22,7 +22,7 @@
 [ext_resource path="res://assets/ui/icons/IconRewards.Png" type="Texture" id=20]
 [ext_resource path="res://assets/ui/icons/IconMission.Png" type="Texture" id=21]
 [ext_resource path="res://assets/ui/icons/IconFriends.png" type="Texture" id=22]
-[ext_resource path="res://assets/ui/icons/IconNews.Png" type="Texture" id=23]
+[ext_resource path="res://assets/ui/icons/IconHammer.png" type="Texture" id=23]
 [ext_resource path="res://assets/ui/components/button/Btn_OtherButton_SideButton01_Left.png" type="Texture" id=24]
 [ext_resource path="res://assets/ui/icons/IconSettings.png" type="Texture" id=25]
 [ext_resource path="res://scripts/UI/scenes/Lobby.gd" type="Script" id=26]
@@ -497,18 +497,18 @@ margin_bottom = 414.0
 custom_constants/separation = 15
 alignment = 1
 
-[node name="NoticeButton" parent="CenterRightContainer/Col3" instance=ExtResource( 19 )]
+[node name="EditorButton" parent="CenterRightContainer/Col3" instance=ExtResource( 19 )]
 margin_left = 71.0
 margin_right = 199.0
 
-[node name="Icon" parent="CenterRightContainer/Col3/NoticeButton" index="1"]
-margin_left = -35.7
-margin_right = 35.7
-margin_bottom = 93.7
+[node name="Icon" parent="CenterRightContainer/Col3/EditorButton" index="1"]
+margin_left = -32.9
+margin_right = 32.9
+margin_bottom = 75.5
 texture = ExtResource( 23 )
 
-[node name="Label" parent="CenterRightContainer/Col3/NoticeButton" index="2"]
-text = "News"
+[node name="Label" parent="CenterRightContainer/Col3/EditorButton" index="2"]
+text = "Editor"
 
 [node name="SettingsButton" parent="." instance=ExtResource( 3 )]
 anchor_left = 1.0
@@ -584,7 +584,7 @@ margin_right = 985.0
 [editable path="CenterRightContainer/Col1/RewardsButton"]
 [editable path="CenterRightContainer/Col2/QuestsButton"]
 [editable path="CenterRightContainer/Col2/FriendsButton"]
-[editable path="CenterRightContainer/Col3/NoticeButton"]
+[editable path="CenterRightContainer/Col3/EditorButton"]
 [editable path="SettingsButton"]
 [editable path="TopRightContainer/EnergyBar"]
 [editable path="TopRightContainer/EnergyBar/SignalButton"]
